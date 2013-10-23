@@ -24,6 +24,8 @@
                 exclude-result-prefixes="xalan wadl xs"
                 version="1.0">
   
+  <xsl:param name="contextPath"/>
+  
   <xsl:variable name="namespaces">       
     <xsl:for-each select="/*/namespace::*">
       <namespace prefix="{name()}" url="{.}"/>            
@@ -44,12 +46,12 @@
           <xsl:value-of select="wadl:doc/@title"/>
         </title>
 
-        <link rel="stylesheet" href="css/jquery-ui.css"/>
-        <link rel="stylesheet" href="css/style.css"/>
+        <link rel="stylesheet" href="{$contextPath}/css/jquery-ui.css"/>
+        <link rel="stylesheet" href="{$contextPath}/css/style.css"/>
 
-        <script src="js/jquery-1.9.1.js">          
+        <script src="{$contextPath}/js/jquery.js">          
         </script>
-        <script src="js/jquery-ui-1.10.3.js">          
+        <script src="{$contextPath}/js/jquery-ui.js">          
         </script>
         <script>
           //<![CDATA[

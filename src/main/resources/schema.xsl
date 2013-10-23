@@ -25,6 +25,7 @@
   
   <xsl:strip-space elements="*"/>
 
+  <xsl:param name="contextPath"/>
   <xsl:param name="schema-position"/>  
   <xsl:param name="schema-prefix"/>  
   
@@ -36,9 +37,9 @@
           <xsl:value-of select="wadl:doc/@title"/>
         </title>
                   
-        <link rel="stylesheet" href="css/highlight.css"/>
+        <link rel="stylesheet" href="{$contextPath}/css/highlight.css"/>
         
-        <script src="js/highlight.pack.js">           
+        <script src="{$contextPath}/js/highlight.pack.js">           
         </script>
         <script>
           hljs.initHighlightingOnLoad();
