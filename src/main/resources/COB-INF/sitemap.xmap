@@ -17,18 +17,33 @@
       </map:match>
     </map:pipeline>
 
-    <map:pipeline>
+    <map:pipeline type="noncaching">
       <map:match pattern="">
         <servlet:redirect-to uri="servlet:/index.html"/>
       </map:match>
 
-      <map:match pattern="index.html">
+      <!-- Read WADL from local filesystem (no schema include) -->
+      <map:match pattern="application.wadl">
         <map:generate src="application.wadl"/>
+        <map:serialize/>
+      </map:match>
+      <!-- Uncomment this pipeline to enjoy remote WADL fetching (featuring schema include) -->
+      <!--<map:match pattern="application.wadl">
+        <map:generate src="https://www.tonjac.org/org.tonjac.schoolsoft.push-1.0-SNAPSHOT/push/application.wadl"/>
+        <map:transform src="prepare-include.xsl">
+          <map:parameter name="baseURL" value="https://www.tonjac.org/org.tonjac.schoolsoft.push-1.0-SNAPSHOT/push/"/>
+        </map:transform>
+        <map:transform type="xinclude"/>
+        <map:serialize/>
+      </map:match>-->
+
+      <map:match pattern="index.html">
+        <map:generate src="servlet:/application.wadl"/>
         <map:transform src="index.xsl"/>
         <map:serialize type="html"/>
       </map:match>
       <map:match pattern="schema_*_*.html">
-        <map:generate src="application.wadl"/>
+        <map:generate src="servlet:/application.wadl"/>
         <map:transform src="schema.xsl">
           <map:parameter name="schema-position" value="{map:1}"/>
           <map:parameter name="schema-prefix" value="{map:2}"/>
