@@ -20,6 +20,7 @@ package net.tirasa.wadl2html;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.net.URLConnection;
 import java.util.HashMap;
 import java.util.Map;
@@ -32,6 +33,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.cocoon.pipeline.CachingPipeline;
 import org.apache.cocoon.pipeline.Pipeline;
 import org.apache.cocoon.sax.SAXPipelineComponent;
+import org.apache.cocoon.sax.component.XIncludeTransformer;
 import org.apache.cocoon.sax.component.XMLGenerator;
 import org.apache.cocoon.sax.component.XMLSerializer;
 import org.apache.cocoon.sax.component.XSLTTransformer;
@@ -95,7 +97,24 @@ public class WADLServlet extends HttpServlet {
         final Matcher schemaMatcher = SCHEMA_PATTERN.matcher(requestURI);
 
         final Pipeline<SAXPipelineComponent> pipeline = new CachingPipeline<SAXPipelineComponent>();
-        pipeline.addComponent(new XMLGenerator(getClass().getResource("/application.wadl")));
+
+        if (Boolean.valueOf(request.getParameter("remote"))) {
+            new TrustAllCerts().init();
+
+            pipeline.addComponent(new XMLGenerator(
+                    new URL("https://www.tonjac.org/org.tonjac.schoolsoft.push-1.0-SNAPSHOT/push/application.wadl")));
+
+            final XSLTTransformer xslt = new XSLTTransformer(getClass().getResource("/prepare-include.xsl"));
+            final Map<String, Object> parameters = new HashMap<String, Object>();
+            parameters.put("baseURL", "https://www.tonjac.org/org.tonjac.schoolsoft.push-1.0-SNAPSHOT/push/");
+            xslt.setParameters(parameters);
+            pipeline.addComponent(xslt);
+
+            pipeline.addComponent(new XIncludeTransformer());
+        } else {
+            pipeline.addComponent(new XMLGenerator(getClass().getResource("/application.wadl")));
+        }
+
         if ("/".equals(requestURI)) {
             final XSLTTransformer xslt = new XSLTTransformer(getClass().getResource("/index.xsl"));
 
