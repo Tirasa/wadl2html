@@ -16,6 +16,8 @@ $ mvn
 Now poin your browser to [http://localhost:8888/]() - you should be able to browse 
 [Apache Syncope](http://syncope.apache.org) RESTful API documentation.
 
+If pointing to [http://localhost:8888/]() you will see instead remote WADL fetching, also featuring schema include.
+
 ### Use your own WADL
 
 Pretty easy: just replace `src/main/resources/application.wadl` with your own, and relaunch as reported above.
