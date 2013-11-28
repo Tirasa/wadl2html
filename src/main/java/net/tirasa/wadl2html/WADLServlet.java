@@ -98,7 +98,8 @@ public class WADLServlet extends HttpServlet {
 
         final Pipeline<SAXPipelineComponent> pipeline = new CachingPipeline<SAXPipelineComponent>();
 
-        if (Boolean.valueOf(request.getParameter("remote"))) {
+        boolean isRemote = Boolean.valueOf(request.getParameter("remote"));
+        if (isRemote) {
             new TrustAllCerts().init();
 
             pipeline.addComponent(new XMLGenerator(
@@ -120,6 +121,7 @@ public class WADLServlet extends HttpServlet {
 
             final Map<String, Object> parameters = new HashMap<String, Object>();
             parameters.put("contextPath", request.getContextPath());
+            parameters.put("remote", isRemote);
             xslt.setParameters(parameters);
 
             pipeline.addComponent(xslt);
