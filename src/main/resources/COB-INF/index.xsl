@@ -24,6 +24,8 @@
                 exclude-result-prefixes="xalan wadl xs"
                 version="1.0">
   
+  <xsl:param name="remote"/>
+  
   <xsl:variable name="namespaces">       
     <xsl:for-each select="/*/namespace::*">
       <namespace prefix="{name()}" url="{.}"/>            
@@ -216,18 +218,24 @@
   <xsl:template match="xs:schema">
     <xsl:variable name="targetNamespace" select="@targetNamespace"/>
 
-    <xsl:variable name="prefix" 
-                  select="xalan:nodeset($namespaces)/namespace[@url = $targetNamespace]/@prefix"/>
+    <xsl:variable name="prefix">
+      <xsl:choose>
+        <xsl:when test="string-length($targetNamespace) &gt; 0">
+          <xsl:value-of select="xalan:nodeset($namespaces)/namespace[@url = $targetNamespace]/@prefix"/>
+        </xsl:when>
+        <xsl:otherwise>schema</xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>                  
 
     <tr>
       <td>
         <xsl:value-of select="$prefix"/>
       </td>
       <td>
-        <xsl:value-of select="@targetNamespace"/>
+        <xsl:value-of select="$targetNamespace"/>
       </td>
       <td>
-        <a href="schema_{position()}_{$prefix}.html" 
+        <a href="schema_{position()}_{$prefix}.html?remote={$remote}"
            onClick="window.open('', 'schema', '', true).focus();" target="schema">
           <xsl:value-of select="$prefix"/>.xsd</a>
       </td>
@@ -355,14 +363,38 @@
                   <xsl:value-of select="wadl:representation/@element"/>                  
                 </xsl:when>
                 <xsl:otherwise>
-                  <xsl:variable name="schema-prefix" 
-                                select="substring-before(wadl:representation/@element, ':')"/>
+                  <xsl:variable name="schema-prefix">
+                    <xsl:choose>
+                      <xsl:when test="string-length(substring-before(wadl:representation/@element, ':')) &gt; 0">
+                        <xsl:value-of select="substring-before(wadl:representation/@element, ':')"/>
+                      </xsl:when>
+                      <xsl:otherwise>schema</xsl:otherwise>
+                    </xsl:choose>
+                  </xsl:variable>
+                  
                   <xsl:variable name="nsURL" 
                                 select="xalan:nodeset($namespaces)/namespace[@prefix = $schema-prefix]/@url"/>
-                  <xsl:variable name="schema-position" 
-                                select="xalan:nodeset($namespacePos)/namespace[@url = $nsURL]/@position"/>
+                  <xsl:variable name="schema-position">
+                    <xsl:choose>
+                      <xsl:when test="string-length($nsURL) &gt; 0">
+                        <xsl:value-of select="xalan:nodeset($namespacePos)/namespace[@url = $nsURL]/@position"/>
+                      </xsl:when>
+                      <xsl:otherwise>1</xsl:otherwise>
+                    </xsl:choose>
+                  </xsl:variable>
                   
-                  <a href="schema_{$schema-position}_{$schema-prefix}.html#{substring-after(wadl:representation/@element, ':')}"
+                  <xsl:variable name="hash">
+                    <xsl:choose>
+                      <xsl:when test="$schema-prefix = 'schema'">
+                        <xsl:value-of select="wadl:representation/@element"/>
+                      </xsl:when>
+                      <xsl:otherwise>
+                        <xsl:value-of select="substring-after(wadl:representation/@element, ':')"/>
+                      </xsl:otherwise>
+                    </xsl:choose>
+                  </xsl:variable>
+                  
+                  <a href="schema_{$schema-position}_{$schema-prefix}.html?remote={$remote}#{$hash}"
                      onClick="window.open('', 'schema', '', true).focus();" target="schema">
                     <xsl:value-of select="wadl:representation/@element"/>
                   </a>

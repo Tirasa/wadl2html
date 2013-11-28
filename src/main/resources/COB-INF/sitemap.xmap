@@ -68,7 +68,9 @@
       <!-- Call this with no params for local WADL or add '?remote=true' for remote WADL -->
       <map:match pattern="index.html">
         <map:generate src="servlet:/application.wadl"/>
-        <map:transform src="index.xsl"/>
+        <map:transform src="index.xsl">
+          <map:parameter name="remote" value="{jexl:cocoon.request.remote}"/>
+        </map:transform>
         <map:serialize type="html"/>
       </map:match>
       <map:match pattern="schema_*_*.html">
