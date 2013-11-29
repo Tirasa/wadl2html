@@ -1,0 +1,30 @@
+<?xml version="1.0" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="broadcastResult" type="broadcastResult"/>
+
+  <xs:element name="group" type="group"/>
+
+  <xs:complexType name="broadcastResult">
+    <xs:sequence>
+      <xs:element name="doneTime" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="results" type="sendResult" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="sendResult">
+    <xs:sequence>
+      <xs:element name="result" type="xs:string" minOccurs="0"/>
+      <xs:element name="deviceId" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="group">
+    <xs:sequence>
+      <xs:element name="userNames" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="connectionUrl" type="xs:string" minOccurs="0"/>
+      <xs:element name="userType" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

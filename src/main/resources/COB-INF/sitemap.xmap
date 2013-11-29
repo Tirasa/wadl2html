@@ -37,49 +37,30 @@
 
     <map:pipeline type="noncaching">
       <map:match pattern="">
-        <servlet:redirect-to uri="servlet:/index.html"/>
+        <servlet:redirect-to uri="servlet:/syncope.html"/>
       </map:match>
 
-      <map:match pattern="application.wadl">
-        <map:select value="{jexl:cocoon.request.remote}">
-          <map:when equals="true">
-            <map:read src="servlet:/remote.wadl"/>            
-          </map:when>
-          <map:otherwise>
-            <map:read src="servlet:/local.wadl"/>                        
-          </map:otherwise>
-        </map:select>        
-      </map:match>
-      <!-- Read WADL from local filesystem (no schema include) -->
-      <map:match pattern="local.wadl">
-        <map:generate src="application.wadl"/>
-        <map:serialize/>
-      </map:match>
-      <!-- Read remote WADL (featuring schema include) -->
-      <map:match pattern="remote.wadl">
-        <map:generate src="https://www.tonjac.org/org.tonjac.schoolsoft.push-1.0-SNAPSHOT/push/application.wadl"/>
-        <map:transform src="prepare-include.xsl">
-          <map:parameter name="baseURL" value="https://www.tonjac.org/org.tonjac.schoolsoft.push-1.0-SNAPSHOT/push/"/>
+      <map:match pattern="schema_*_*_*.html">
+        <map:generate src="servlet:/{map:1}.wadl"/>
+        <map:transform src="schema.xsl">
+          <map:parameter name="schema-position" value="{map:2}"/>
+          <map:parameter name="schema-prefix" value="{map:3}"/>
         </map:transform>
+        <map:serialize type="html"/>
+      </map:match>
+      <map:match pattern="*.html">
+        <map:generate src="servlet:/{map:1}.wadl"/>
+        <map:transform src="index.xsl">
+          <map:parameter name="application" value="{map:1}"/>
+        </map:transform>
+        <map:serialize type="html"/>
+      </map:match>
+
+      <map:match pattern="*.wadl">
+        <map:generate src="{map:1}.wadl"/>
+        <map:transform src="prepare-include.xsl"/>
         <map:transform type="xinclude"/>
         <map:serialize/>
-      </map:match>
-
-      <!-- Call this with no params for local WADL or add '?remote=true' for remote WADL -->
-      <map:match pattern="index.html">
-        <map:generate src="servlet:/application.wadl"/>
-        <map:transform src="index.xsl">
-          <map:parameter name="remote" value="{jexl:cocoon.request.remote}"/>
-        </map:transform>
-        <map:serialize type="html"/>
-      </map:match>
-      <map:match pattern="schema_*_*.html">
-        <map:generate src="servlet:/application.wadl"/>
-        <map:transform src="schema.xsl">
-          <map:parameter name="schema-position" value="{map:1}"/>
-          <map:parameter name="schema-prefix" value="{map:2}"/>
-        </map:transform>
-        <map:serialize type="html"/>
       </map:match>
     </map:pipeline>    
     

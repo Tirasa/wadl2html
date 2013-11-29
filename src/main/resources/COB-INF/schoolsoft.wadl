@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:application xmlns:ns2="http://wadl.dev.java.net/2009/02">
+    <ns2:doc xmlns:jersey="http://jersey.java.net/" jersey:generatedBy="Jersey: 1.17.1 02/28/2013 12:47 PM"/>
+    <ns2:doc title="SchoolSoft Login Push API" xml:lang="en">
+        API för att pusha meddelanden till SchoolSoft Login Appen för iOS, Android och WindowsPhone
+    </ns2:doc>
+    <ns2:grammars>
+        <ns2:include href="schoolsoft.xsd">
+            <ns2:doc title="Generated" xml:lang="en"/>
+        </ns2:include>
+    </ns2:grammars>
+    <ns2:resources base="https://www.tonjac.org/org.tonjac.schoolsoft.push-1.0-SNAPSHOT/push/">
+        <ns2:resource path="/notification">
+            <ns2:resource path="/send">
+                <ns2:method id="send" name="GET">
+                    <ns2:doc>Skickar en notis till en användares registrerade enheter. En notis totala storlek kan maximalt vara 256 bytes.&lt;br/&gt;
+ Storleken omfattar den sammanlagda storleken för userName, userType, messageType, messageTitle, messageBody och badge&lt;br/&gt;
+ samt JSON-overhead. Använd testPayloadToUser och testPayloadBroadcast för ta reda på exakt storlek.</ns2:doc>
+                    <ns2:request>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="userName" style="query" type="xs:string">
+                            <ns2:doc>Användarnamn</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="userType" style="query" type="xs:int">
+                            <ns2:doc>Användartyp, Lärare(0), Elev(1), Förälder(2), Alla(100)</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="connectionUrl" style="query" type="xs:string">
+                            <ns2:doc>Host/URL där användaren har sitt konto (https://sms4.schoolsoft.se/gotland)</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="messageType" style="query" type="xs:int">
+                            <ns2:doc>Meddelandetyp Admin(0), Message(1), News(2)</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="messageTitle" style="query" type="xs:string">
+                            <ns2:doc>Titel/rubrik</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="messageBody" style="query" type="xs:string">
+                            <ns2:doc>Meddelande</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="badge" style="query" type="xs:int">
+                            <ns2:doc>Siffran som visas på badge (gäller endast iOS)</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="apiUser" style="query" type="xs:string">
+                            <ns2:doc>API-användare</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="apiKey" style="query" type="xs:string">
+                            <ns2:doc>API-lösenord</ns2:doc>
+                        </ns2:param>
+                    </ns2:request>
+                    <ns2:response>
+                        <ns2:representation element="broadcastResult" mediaType="application/xml"/>
+                        <ns2:representation element="broadcastResult" mediaType="text/xml"/>
+                        <ns2:representation element="broadcastResult" mediaType="application/json"/>
+                    </ns2:response>
+                </ns2:method>
+            </ns2:resource>
+            <ns2:resource path="/broadcast">
+                <ns2:method id="broadcast" name="GET">
+                    <ns2:doc>Skickar en notis till alla användare. Filtrering kan göras på användartyp och/eller plattform.&lt;br/&gt;
+ Identiteten som returneras kan användas för att kontrollera hur utskicket har gått via broadcastResult.&lt;br/&gt;
+ OBS! att massutskick kan ta flera timmar att genomföra.</ns2:doc>
+                    <ns2:request>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="userType" style="query" type="xs:int">
+                            <ns2:doc>Användartyp, Lärare(0), Elev(1), Förälder(2), Alla(100)</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="platform" style="query" type="xs:int">
+                            <ns2:doc>Plattform, iOS(0), Android(1), WindowsPhone(2), Alla(100)</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="messageType" style="query" type="xs:int">
+                            <ns2:doc>Meddelandetyp Admin(0), Message(1), News(2)</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="messageTitle" style="query" type="xs:string">
+                            <ns2:doc>Titel/rubrik</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="messageBody" style="query" type="xs:string">
+                            <ns2:doc>Meddelande</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="apiUser" style="query" type="xs:string">
+                            <ns2:doc>API-användare</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="apiKey" style="query" type="xs:string">
+                            <ns2:doc>API-lösenord</ns2:doc>
+                        </ns2:param>
+                    </ns2:request>
+                    <ns2:response>
+                        <ns2:representation mediaType="text/plain"/>
+                    </ns2:response>
+                </ns2:method>
+            </ns2:resource>
+            <ns2:resource path="/serverVersion">
+                <ns2:method id="serverVersion" name="GET">
+                    <ns2:doc>Hämtar versionsnummer för push-tjänsten</ns2:doc>
+                    <ns2:response>
+                        <ns2:representation mediaType="text/plain"/>
+                    </ns2:response>
+                </ns2:method>
+            </ns2:resource>
+            <ns2:resource path="/broadcastResult">
+                <ns2:method id="broadcastResult" name="GET">
+                    <ns2:doc>Kontrollerar resultat av ett tidigare genomfört massutskick.&lt;br/&gt;
+ Om resultatet innehåller en tidpunkt i fältet doneTime så är massutskicket genomfört annars är massutskicket&lt;br/&gt;
+ pågående.</ns2:doc>
+                    <ns2:request>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="broadcastId" style="query" type="xs:long">
+                            <ns2:doc>Id för massutskick</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="apiUser" style="query" type="xs:string">
+                            <ns2:doc>API-användare</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="apiKey" style="query" type="xs:string">
+                            <ns2:doc>API-lösenord</ns2:doc>
+                        </ns2:param>
+                    </ns2:request>
+                    <ns2:response>
+                        <ns2:representation element="broadcastResult" mediaType="application/xml"/>
+                        <ns2:representation element="broadcastResult" mediaType="text/xml"/>
+                        <ns2:representation element="broadcastResult" mediaType="application/json"/>
+                    </ns2:response>
+                </ns2:method>
+            </ns2:resource>
+            <ns2:resource path="/testPayloadToUser">
+                <ns2:method id="testPayloadToUser" name="GET">
+                    <ns2:doc>Testar storleken på ett meddelande. Max 256 bytes kan skickas.</ns2:doc>
+                    <ns2:request>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="userName" style="query" type="xs:string">
+                            <ns2:doc>Användarnamn</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="userType" style="query" type="xs:int">
+                            <ns2:doc>Användartyp, Lärare(0), Elev(1), Förälder(2), Alla(100)</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="messageType" style="query" type="xs:int">
+                            <ns2:doc>Meddelandetyp Admin(0), Message(1), News(2)</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="messageTitle" style="query" type="xs:string">
+                            <ns2:doc>Titel/rubrik</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="messageBody" style="query" type="xs:string">
+                            <ns2:doc>Meddelande</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="badge" style="query" type="xs:int">
+                            <ns2:doc>Siffran som visas på badge (gäller endast iOS)</ns2:doc>
+                        </ns2:param>
+                    </ns2:request>
+                    <ns2:response>
+                        <ns2:representation mediaType="text/plain"/>
+                    </ns2:response>
+                </ns2:method>
+            </ns2:resource>
+            <ns2:resource path="/testPayloadBroadcast">
+                <ns2:method id="testPayloadBroadcast" name="GET">
+                    <ns2:doc>Testar storleken på ett meddelande. Max 256 bytes kan skickas.</ns2:doc>
+                    <ns2:request>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="messageType" style="query" type="xs:int">
+                            <ns2:doc>Meddelandetyp Admin(0), Message(1), News(2)</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="messageTitle" style="query" type="xs:string">
+                            <ns2:doc>Titel/rubrik</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="messageBody" style="query" type="xs:string">
+                            <ns2:doc>Meddelande</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="badge" style="query" type="xs:int">
+                            <ns2:doc>Siffran som visas på badge (gäller endast iOS)</ns2:doc>
+                        </ns2:param>
+                    </ns2:request>
+                    <ns2:response>
+                        <ns2:representation mediaType="text/plain"/>
+                    </ns2:response>
+                </ns2:method>
+            </ns2:resource>
+            <ns2:resource path="/sendToGroup">
+                <ns2:method id="sendToGroup" name="POST">
+                    <ns2:doc>Skicka till en grupp av mottagare.</ns2:doc>
+                    <ns2:request>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="messageType" style="query" type="xs:int">
+                            <ns2:doc>Meddelandetyp Admin(0), Message(1), News(2)</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="messageTitle" style="query" type="xs:string">
+                            <ns2:doc>Titel/rubrik</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="messageBody" style="query" type="xs:string">
+                            <ns2:doc>Meddelande</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="apiUser" style="query" type="xs:string">
+                            <ns2:doc>API-användare</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="apiKey" style="query" type="xs:string">
+                            <ns2:doc>API-lösenord</ns2:doc>
+                        </ns2:param>
+                        <ns2:representation element="group" mediaType="application/json"/>
+                    </ns2:request>
+                    <ns2:response>
+                        <ns2:representation element="broadcastResult" mediaType="application/xml"/>
+                        <ns2:representation element="broadcastResult" mediaType="text/xml"/>
+                        <ns2:representation element="broadcastResult" mediaType="application/json"/>
+                    </ns2:response>
+                </ns2:method>
+            </ns2:resource>
+        </ns2:resource>
+        <ns2:resource path="/device">
+            <ns2:resource path="/register">
+                <ns2:method id="register" name="GET">
+                    <ns2:doc>Registrerar en enhet för mottagning av push-notiser</ns2:doc>
+                    <ns2:request>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="deviceId" style="query" type="xs:string">
+                            <ns2:doc>Enhetens identitet</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="userName" style="query" type="xs:string">
+                            <ns2:doc>Användarnamn</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="userType" style="query" type="xs:int">
+                            <ns2:doc>Användartyp</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="connectionUrl" style="query" type="xs:string">
+                            <ns2:doc>Host/URL där användaren har sitt konto (https://sms4.schoolsoft.se/gotland)</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="appVersion" style="query" type="xs:int">
+                            <ns2:doc>App version</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="platform" style="query" type="xs:int">
+                            <ns2:doc>Plattform, iOS(0), Android(1) eller WindowsPhone(2)</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="apiUser" style="query" type="xs:string">
+                            <ns2:doc>API-användare</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="apiKey" style="query" type="xs:string">
+                            <ns2:doc>API-lösenord</ns2:doc>
+                        </ns2:param>
+                    </ns2:request>
+                    <ns2:response status="200">
+                        <ns2:doc>Resultat av registrering</ns2:doc>
+                        <ns2:representation mediaType="text/plain">
+                            <ns2:doc>&quot;DONE&quot; vid lyckad registrering,
+          &quot;ALREADY_REGISTERED&quot; om kombinationen av användare och device redan är registrerad</ns2:doc>
+                        </ns2:representation>
+                    </ns2:response>
+                    <ns2:response status="401">
+                        <ns2:doc>Resultat av registrering</ns2:doc>
+                        <ns2:representation mediaType="text/plain">
+                            <ns2:doc>Ej behörig</ns2:doc>
+                        </ns2:representation>
+                    </ns2:response>
+                    <ns2:response status="500">
+                        <ns2:doc>Resultat av registrering</ns2:doc>
+                        <ns2:representation mediaType="text/plain">
+                            <ns2:doc>Registrering misslyckades</ns2:doc>
+                        </ns2:representation>
+                    </ns2:response>
+                </ns2:method>
+            </ns2:resource>
+            <ns2:resource path="/count">
+                <ns2:method id="count" name="GET">
+                    <ns2:doc>Antal registrerade enheter</ns2:doc>
+                    <ns2:request>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="apiUser" style="query" type="xs:string">
+                            <ns2:doc>API-användare</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="apiKey" style="query" type="xs:string">
+                            <ns2:doc>API-lösenord</ns2:doc>
+                        </ns2:param>
+                    </ns2:request>
+                    <ns2:response>
+                        <ns2:representation mediaType="text/plain"/>
+                    </ns2:response>
+                </ns2:method>
+            </ns2:resource>
+            <ns2:resource path="/unregister">
+                <ns2:method id="unregister" name="GET">
+                    <ns2:doc>Avregistrerar en enhet från att ta emot push-notiser</ns2:doc>
+                    <ns2:request>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="deviceId" style="query" type="xs:string">
+                            <ns2:doc>Enhetens identitet</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="apiUser" style="query" type="xs:string">
+                            <ns2:doc>API-användare</ns2:doc>
+                        </ns2:param>
+                        <ns2:param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="apiKey" style="query" type="xs:string">
+                            <ns2:doc>API-lösenord</ns2:doc>
+                        </ns2:param>
+                    </ns2:request>
+                    <ns2:response status="200">
+                        <ns2:doc>Resultat av registrering</ns2:doc>
+                        <ns2:representation mediaType="text/plain">
+                            <ns2:doc>&quot;DELETED&quot; vid lyckad avregistrering</ns2:doc>
+                        </ns2:representation>
+                    </ns2:response>
+                    <ns2:response status="401">
+                        <ns2:doc>Resultat av registrering</ns2:doc>
+                        <ns2:representation mediaType="text/plain">
+                            <ns2:doc>Ej behörig</ns2:doc>
+                        </ns2:representation>
+                    </ns2:response>
+                    <ns2:response status="500">
+                        <ns2:doc>Resultat av registrering</ns2:doc>
+                        <ns2:representation mediaType="text/plain">
+                            <ns2:doc>Avregistrering misslyckades</ns2:doc>
+                        </ns2:representation>
+                    </ns2:response>
+                </ns2:method>
+            </ns2:resource>
+        </ns2:resource>
+    </ns2:resources>
+</ns2:application>

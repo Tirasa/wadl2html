@@ -20,11 +20,9 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
                 xmlns:wadl="http://wadl.dev.java.net/2009/02"
                 version="1.0">
-
-  <xsl:param name="baseURL"/>
   
   <xsl:template match="wadl:include">
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="{$baseURL}{@href}"/>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="{@href}"/>
   </xsl:template>
   
   <xsl:template match="node()|@*">
