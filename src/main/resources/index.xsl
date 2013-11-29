@@ -25,7 +25,7 @@
                 version="1.0">
   
   <xsl:param name="contextPath"/>
-  <xsl:param name="remote"/>
+  <xsl:param name="application"/>
   
   <xsl:variable name="namespaces">       
     <xsl:for-each select="/*/namespace::*">
@@ -236,7 +236,7 @@
         <xsl:value-of select="$targetNamespace"/>
       </td>
       <td>
-        <a href="schema_{position()}_{$prefix}.html?remote={$remote}"
+        <a href="schema_{$application}_{position()}_{$prefix}.html"
            onClick="window.open('', 'schema', '', true).focus();" target="schema">
           <xsl:value-of select="$prefix"/>.xsd</a>
       </td>
@@ -395,7 +395,7 @@
                     </xsl:choose>
                   </xsl:variable>
                   
-                  <a href="schema_{$schema-position}_{$schema-prefix}.html?remote={$remote}#{$hash}"
+                  <a href="schema_{$application}_{$schema-position}_{$schema-prefix}.html#{$hash}"
                      onClick="window.open('', 'schema', '', true).focus();" target="schema">
                     <xsl:value-of select="wadl:representation/@element"/>
                   </a>

@@ -18,9 +18,9 @@
  */
 package net.tirasa.wadl2html;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
 import java.net.URLConnection;
 import java.util.HashMap;
 import java.util.Map;
@@ -42,7 +42,9 @@ public class WADLServlet extends HttpServlet {
 
     private static final long serialVersionUID = -6737005675471095560L;
 
-    private static final Pattern SCHEMA_PATTERN = Pattern.compile("/schema_(.*)_(.*)\\.html");
+    private static final Pattern APPLICATION_PATTERN = Pattern.compile("/(.*)\\.html");
+
+    private static final Pattern SCHEMA_PATTERN = Pattern.compile("/schema_(.*)_(.*)_(.*)\\.html");
 
     private void staticResource(final String requestURI, final HttpServletResponse response)
             throws ServletException, IOException {
@@ -80,6 +82,25 @@ public class WADLServlet extends HttpServlet {
         }
     }
 
+    protected byte[] applicationWADL(final String application) throws ServletException {
+        final Pipeline<SAXPipelineComponent> pipeline = new CachingPipeline<SAXPipelineComponent>();
+
+        pipeline.addComponent(new XMLGenerator(getClass().getResource("/" + application + ".wadl")));
+        pipeline.addComponent(new XSLTTransformer(getClass().getResource("/prepare-include.xsl")));
+        pipeline.addComponent(new XIncludeTransformer(getClass().getResource("/")));
+        pipeline.addComponent(XMLSerializer.createXMLSerializer());
+
+        final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        pipeline.setup(baos);
+        try {
+            pipeline.execute();
+        } catch (Exception e) {
+            throw new ServletException(e);
+        }
+
+        return baos.toByteArray();
+    }
+
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -94,44 +115,34 @@ public class WADLServlet extends HttpServlet {
 
         final String requestURI = request.getRequestURI().substring(
                 request.getRequestURI().indexOf(request.getServletPath()) + request.getServletPath().length());
+        final Matcher applicationMatcher = APPLICATION_PATTERN.matcher(requestURI);
         final Matcher schemaMatcher = SCHEMA_PATTERN.matcher(requestURI);
 
         final Pipeline<SAXPipelineComponent> pipeline = new CachingPipeline<SAXPipelineComponent>();
 
-        boolean isRemote = Boolean.valueOf(request.getParameter("remote"));
-        if (isRemote) {
-            new TrustAllCerts().init();
-
-            pipeline.addComponent(new XMLGenerator(
-                    new URL("https://www.tonjac.org/org.tonjac.schoolsoft.push-1.0-SNAPSHOT/push/application.wadl")));
-
-            final XSLTTransformer xslt = new XSLTTransformer(getClass().getResource("/prepare-include.xsl"));
-            final Map<String, Object> parameters = new HashMap<String, Object>();
-            parameters.put("baseURL", "https://www.tonjac.org/org.tonjac.schoolsoft.push-1.0-SNAPSHOT/push/");
-            xslt.setParameters(parameters);
-            pipeline.addComponent(xslt);
-
-            pipeline.addComponent(new XIncludeTransformer());
-        } else {
-            pipeline.addComponent(new XMLGenerator(getClass().getResource("/application.wadl")));
-        }
-
         if ("/".equals(requestURI)) {
+            response.sendRedirect("syncope.html");
+            return;
+        } else if (schemaMatcher.matches()) {
+            pipeline.addComponent(new XMLGenerator(applicationWADL(schemaMatcher.group(1))));
+
+            final XSLTTransformer schemaXSLT = new XSLTTransformer(getClass().getResource("/schema.xsl"));
+
+            final Map<String, Object> parameters = new HashMap<String, Object>();
+            parameters.put("contextPath", request.getContextPath());
+            parameters.put("schema-position", schemaMatcher.group(2));
+            parameters.put("schema-prefix", schemaMatcher.group(3));
+            schemaXSLT.setParameters(parameters);
+
+            pipeline.addComponent(schemaXSLT);
+        } else if (applicationMatcher.matches()) {
+            pipeline.addComponent(new XMLGenerator(applicationWADL(applicationMatcher.group(1))));
+
             final XSLTTransformer xslt = new XSLTTransformer(getClass().getResource("/index.xsl"));
 
             final Map<String, Object> parameters = new HashMap<String, Object>();
             parameters.put("contextPath", request.getContextPath());
-            parameters.put("remote", isRemote);
-            xslt.setParameters(parameters);
-
-            pipeline.addComponent(xslt);
-        } else if (schemaMatcher.matches()) {
-            final XSLTTransformer xslt = new XSLTTransformer(getClass().getResource("/schema.xsl"));
-
-            final Map<String, Object> parameters = new HashMap<String, Object>();
-            parameters.put("contextPath", request.getContextPath());
-            parameters.put("schema-position", schemaMatcher.group(1));
-            parameters.put("schema-prefix", schemaMatcher.group(2));
+            parameters.put("application", applicationMatcher.group(1));
             xslt.setParameters(parameters);
 
             pipeline.addComponent(xslt);
