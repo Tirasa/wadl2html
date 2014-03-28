@@ -39,7 +39,7 @@
                   
         <link rel="stylesheet" href="{$contextPath}/css/highlight.css"/>
         
-        <script src="{$contextPath}/js/highlight.pack.js">           
+        <script src="{$contextPath}/js/highlight.pack.js">  
         </script>
         <script>
           hljs.initHighlightingOnLoad();
@@ -118,8 +118,15 @@
         <xsl:text>="</xsl:text>
         <xsl:choose>
           <xsl:when test="contains(., ':') and not(starts-with(., 'xs:'))">
-            <a href="#int_{substring-after(., ':')}">
-              <xsl:value-of select="."/>                          
+            <a>
+              <xsl:variable name="current" select="."/>
+              <xsl:attribute name="href">
+                <xsl:choose>
+                  <xsl:when test="name() = 'ref'">#<xsl:value-of select="substring-after($current, ':')"/></xsl:when>
+                  <xsl:otherwise>#int_<xsl:value-of select="substring-after($current, ':')"/></xsl:otherwise>
+                </xsl:choose>                
+              </xsl:attribute>
+              <xsl:value-of select="$current"/>                          
             </a>
           </xsl:when>
           <xsl:otherwise>

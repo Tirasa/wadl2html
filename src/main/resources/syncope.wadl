@@ -1,92 +1,72 @@
 <application xmlns="http://wadl.dev.java.net/2009/02" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:syncope1="http://syncope.apache.org/1.2"><doc title="Apache Syncope 1.2.0-SNAPSHOT"/><grammars><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://syncope.apache.org/1.2" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://syncope.apache.org/1.2">
+<xs:element name="abstractPolicy" type="tns:abstractPolicyTO"/>
 <xs:element name="abstractSchema" type="tns:abstractSchemaTO"/>
-<xs:element name="accountPolicy" substitutionGroup="tns:policy" type="tns:accountPolicyTO"/>
+<xs:element name="abstractSyncTask" type="tns:abstractSyncTaskTO"/>
+<xs:element name="abstractTask" type="tns:abstractTaskTO"/>
+<xs:element name="accountPolicy" substitutionGroup="tns:abstractPolicy" type="tns:accountPolicyTO"/>
 <xs:element name="attribute" type="tns:attributeTO"/>
-<xs:element name="attributeCondition" type="tns:attributeCond"/>
 <xs:element name="attributeMod" type="tns:attributeMod"/>
 <xs:element name="bulkAction" type="tns:bulkAction"/>
-<xs:element name="bulkActionRes" type="tns:bulkActionRes"/>
-<xs:element name="bulkAssociationAction" type="tns:bulkAssociationAction"/>
+<xs:element name="bulkActionResult" type="tns:bulkActionResult"/>
 <xs:element name="configuration" type="tns:configurationTO"/>
 <xs:element name="connConfPropSchema" type="tns:connConfPropSchema"/>
 <xs:element name="connConfProperty" type="tns:connConfProperty"/>
 <xs:element name="connIdObjectClass" type="tns:connIdObjectClassTO"/>
 <xs:element name="connInstance" type="tns:connInstanceTO"/>
 <xs:element name="connObject" type="tns:connObjectTO"/>
+<xs:element name="connPoolConf" type="tns:connPoolConfTO"/>
 <xs:element name="connectorBundle" type="tns:connBundleTO"/>
-<xs:element name="correlationRuleClass" type="tns:correlationRuleClassTO"/>
+<xs:element name="correlationRuleClass" type="tns:correlationRuleClass"/>
 <xs:element name="derivedSchema" substitutionGroup="tns:abstractSchema" type="tns:derSchemaTO"/>
 <xs:element name="entitlement" type="tns:entitlementTO"/>
-<xs:element name="entitlementCondition" type="tns:entitlementCond"/>
-<xs:element name="jobClass" type="tns:jobClassTO"/>
+<xs:element name="eventCategory" type="tns:eventCategoryTO"/>
+<xs:element name="jobClass" type="tns:jobClass"/>
 <xs:element name="logger" type="tns:loggerTO"/>
-<xs:element name="mailTemplate" type="tns:mailTemplateTO"/>
+<xs:element name="mailTemplate" type="tns:mailTemplate"/>
 <xs:element name="mapping" type="tns:mappingTO"/>
 <xs:element name="mappingItem" type="tns:mappingItemTO"/>
 <xs:element name="membership" type="tns:membershipTO"/>
-<xs:element name="membershipCondition" type="tns:membershipCond"/>
 <xs:element name="membershipMod" type="tns:membershipMod"/>
-<xs:element name="nodeCondition" type="tns:nodeCond"/>
 <xs:element name="notification" type="tns:notificationTO"/>
-<xs:element name="notificationTask" substitutionGroup="tns:task" type="tns:notificationTaskTO"/>
-<xs:element name="passwordPolicy" substitutionGroup="tns:policy" type="tns:passwordPolicyTO"/>
-<xs:element name="policy" type="tns:abstractPolicyTO"/>
-<xs:element name="propagationActionClass" type="tns:propagationActionClassTO"/>
-<xs:element name="propagationStatus" type="tns:propagationStatusTO"/>
-<xs:element name="propagationTask" substitutionGroup="tns:task" type="tns:propagationTaskTO"/>
+<xs:element name="notificationTask" substitutionGroup="tns:abstractTask" type="tns:notificationTaskTO"/>
+<xs:element name="pagedResult" type="tns:pagedResult"/>
+<xs:element name="passwordPolicy" substitutionGroup="tns:abstractPolicy" type="tns:passwordPolicyTO"/>
+<xs:element name="propagationActionClass" type="tns:propagationActionClass"/>
+<xs:element name="propagationStatus" type="tns:propagationStatus"/>
+<xs:element name="propagationTask" substitutionGroup="tns:abstractTask" type="tns:propagationTaskTO"/>
+<xs:element name="pushActionClass" type="tns:pushActionClass"/>
+<xs:element name="pushTask" type="tns:pushTaskTO"/>
 <xs:element name="referenceMod" type="tns:referenceMod"/>
 <xs:element name="report" type="tns:reportTO"/>
 <xs:element name="reportExec" type="tns:reportExecTO"/>
-<xs:element name="reportletConfClasses" type="tns:reportletConfClasses"/>
+<xs:element name="reportletConfClass" type="tns:reportletConfClass"/>
 <xs:element name="resource" type="tns:resourceTO"/>
-<xs:element name="resourceCondition" type="tns:resourceCond"/>
-<xs:element name="resourceName" type="tns:resourceNameTO"/>
+<xs:element name="resourceAssociationMod" type="tns:resourceAssociationMod"/>
+<xs:element name="resourceName" type="tns:resourceName"/>
 <xs:element name="role" type="tns:roleTO"/>
 <xs:element name="roleMod" type="tns:roleMod"/>
 <xs:element name="roleReportletConf" type="tns:roleReportletConf"/>
-<xs:element name="schedTask" substitutionGroup="tns:task" type="tns:schedTaskTO"/>
+<xs:element name="schedTask" substitutionGroup="tns:abstractTask" type="tns:schedTaskTO"/>
 <xs:element name="schema" substitutionGroup="tns:abstractSchema" type="tns:schemaTO"/>
 <xs:element name="staticReportletConf" type="tns:staticReportletConf"/>
 <xs:element name="statusMod" type="tns:statusMod"/>
-<xs:element name="syncActionClass" type="tns:syncActionClassTO"/>
-<xs:element name="syncPolicy" substitutionGroup="tns:policy" type="tns:syncPolicyTO"/>
-<xs:element name="syncTask" substitutionGroup="tns:task" type="tns:syncTaskTO"/>
-<xs:element name="task" type="tns:abstractTaskTO"/>
+<xs:element name="syncActionClass" type="tns:syncActionClass"/>
+<xs:element name="syncPolicy" substitutionGroup="tns:abstractPolicy" type="tns:syncPolicyTO"/>
+<xs:element name="syncTask" type="tns:syncTaskTO"/>
 <xs:element name="taskExec" type="tns:taskExecTO"/>
 <xs:element name="user" type="tns:userTO"/>
 <xs:element name="userMod" type="tns:userMod"/>
 <xs:element name="userReportletConf" type="tns:userReportletConf"/>
-<xs:element name="validator" type="tns:validatorTO"/>
+<xs:element name="validator" type="tns:validator"/>
 <xs:element name="virtualSchema" substitutionGroup="tns:abstractSchema" type="tns:virSchemaTO"/>
-<xs:element name="workflowDefinition" type="tns:workflowDefinitionTO"/>
 <xs:element name="workflowForm" type="tns:workflowFormTO"/>
 <xs:element name="workflowFormProperty" type="tns:workflowFormPropertyTO"/>
-<xs:element name="workflowTasks" type="tns:workflowTasks"/>
-<xs:complexType name="connInstanceTO">
+<xs:complexType name="configurationTO">
 <xs:complexContent>
 <xs:extension base="tns:abstractBaseBean">
 <xs:sequence>
-<xs:element minOccurs="0" name="bundleName" type="xs:string"/>
-<xs:element minOccurs="0" name="capabilities">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="capability" type="tns:connectorCapability"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
-<xs:element minOccurs="0" name="configuration">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="property" type="tns:connConfProperty"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
-<xs:element minOccurs="0" name="connRequestTimeout" type="xs:int"/>
-<xs:element minOccurs="0" name="connectorName" type="xs:string"/>
-<xs:element minOccurs="0" name="displayName" type="xs:string"/>
-<xs:element name="id" type="xs:long"/>
-<xs:element minOccurs="0" name="location" type="xs:string"/>
-<xs:element minOccurs="0" name="version" type="xs:string"/>
+<xs:element minOccurs="0" name="key" type="xs:string"/>
+<xs:element minOccurs="0" name="value" type="xs:string"/>
 </xs:sequence>
 </xs:extension>
 </xs:complexContent>
@@ -94,34 +74,21 @@
 <xs:complexType abstract="true" name="abstractBaseBean">
 <xs:sequence/>
 </xs:complexType>
-<xs:complexType name="connConfProperty">
+<xs:complexType abstract="true" name="abstractTaskTO">
 <xs:complexContent>
 <xs:extension base="tns:abstractBaseBean">
 <xs:sequence>
-<xs:element name="overridable" type="xs:boolean"/>
-<xs:element minOccurs="0" name="schema" substitutionGroup="tns:abstractSchema" type="tns:connConfPropSchema"/>
-<xs:element minOccurs="0" name="values">
+<xs:element minOccurs="0" name="endDate" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="executions">
 <xs:complexType>
 <xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="value" type="xs:anyType"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="execution" type="tns:taskExecTO"/>
 </xs:sequence>
 </xs:complexType>
 </xs:element>
-</xs:sequence>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-<xs:complexType name="connConfPropSchema">
-<xs:complexContent>
-<xs:extension base="tns:abstractBaseBean">
-<xs:sequence>
-<xs:element name="confidential" type="xs:boolean"/>
-<xs:element minOccurs="0" name="displayName" type="xs:string"/>
-<xs:element minOccurs="0" name="helpMessage" type="xs:string"/>
-<xs:element minOccurs="0" name="name" type="xs:string"/>
-<xs:element name="order" type="xs:int"/>
-<xs:element name="required" type="xs:boolean"/>
-<xs:element minOccurs="0" name="type" type="xs:string"/>
+<xs:element name="id" type="xs:long"/>
+<xs:element minOccurs="0" name="latestExecStatus" type="xs:string"/>
+<xs:element minOccurs="0" name="startDate" type="xs:dateTime"/>
 </xs:sequence>
 </xs:extension>
 </xs:complexContent>
@@ -148,19 +115,19 @@
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
-<xs:complexType name="syncTaskTO">
+<xs:complexType name="propagationTaskTO">
 <xs:complexContent>
-<xs:extension base="tns:schedTaskTO">
+<xs:extension base="tns:abstractTaskTO">
 <xs:sequence>
-<xs:element minOccurs="0" name="actionsClassName" type="xs:string"/>
-<xs:element name="fullReconciliation" type="xs:boolean"/>
-<xs:element name="performCreate" type="xs:boolean"/>
-<xs:element name="performDelete" type="xs:boolean"/>
-<xs:element name="performUpdate" type="xs:boolean"/>
+<xs:element minOccurs="0" name="accountId" type="xs:string"/>
+<xs:element minOccurs="0" name="objectClassName" type="xs:string"/>
+<xs:element minOccurs="0" name="oldAccountId" type="xs:string"/>
+<xs:element minOccurs="0" name="propagationMode" type="tns:propagationMode"/>
+<xs:element minOccurs="0" name="propagationOperation" type="tns:resourceOperation"/>
 <xs:element minOccurs="0" name="resource" type="xs:string"/>
-<xs:element minOccurs="0" name="roleTemplate" type="tns:roleTO"/>
-<xs:element name="syncStatus" type="xs:boolean"/>
-<xs:element minOccurs="0" name="userTemplate" type="tns:userTO"/>
+<xs:element minOccurs="0" name="subjectId" type="xs:long"/>
+<xs:element minOccurs="0" name="subjectType" type="tns:attributableType"/>
+<xs:element minOccurs="0" name="xmlAttributes" type="xs:string"/>
 </xs:sequence>
 </xs:extension>
 </xs:complexContent>
@@ -179,21 +146,34 @@
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
-<xs:complexType abstract="true" name="abstractTaskTO">
+<xs:complexType name="abstractSyncTaskTO">
 <xs:complexContent>
-<xs:extension base="tns:abstractBaseBean">
+<xs:extension base="tns:schedTaskTO">
 <xs:sequence>
-<xs:element minOccurs="0" name="endDate" type="xs:dateTime"/>
-<xs:element minOccurs="0" name="excecutions">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="excecution" type="tns:taskExecTO"/>
+<xs:element minOccurs="0" name="actionsClassName" type="xs:string"/>
+<xs:element name="performCreate" type="xs:boolean"/>
+<xs:element name="performDelete" type="xs:boolean"/>
+<xs:element name="performUpdate" type="xs:boolean"/>
+<xs:element minOccurs="0" name="resource" type="xs:string"/>
+<xs:element name="syncStatus" type="xs:boolean"/>
 </xs:sequence>
+</xs:extension>
+</xs:complexContent>
 </xs:complexType>
-</xs:element>
-<xs:element name="id" type="xs:long"/>
-<xs:element minOccurs="0" name="latestExecStatus" type="xs:string"/>
-<xs:element minOccurs="0" name="startDate" type="xs:dateTime"/>
+<xs:complexType name="pushTaskTO">
+<xs:complexContent>
+<xs:extension base="tns:abstractSyncTaskTO">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="syncTaskTO">
+<xs:complexContent>
+<xs:extension base="tns:abstractSyncTaskTO">
+<xs:sequence>
+<xs:element name="fullReconciliation" type="xs:boolean"/>
+<xs:element minOccurs="0" name="roleTemplate" type="tns:roleTO"/>
+<xs:element minOccurs="0" name="userTemplate" type="tns:userTO"/>
 </xs:sequence>
 </xs:extension>
 </xs:complexContent>
@@ -202,7 +182,7 @@
 <xs:complexContent>
 <xs:extension base="tns:abstractAttributableTO">
 <xs:sequence>
-<xs:element minOccurs="0" name="accountPolicy" substitutionGroup="tns:policy" type="xs:long"/>
+<xs:element minOccurs="0" name="accountPolicy" substitutionGroup="tns:abstractPolicy" type="xs:long"/>
 <xs:element minOccurs="0" name="entitlements">
 <xs:complexType>
 <xs:sequence>
@@ -240,7 +220,7 @@
 </xs:element>
 <xs:element minOccurs="0" name="name" type="xs:string"/>
 <xs:element name="parent" type="xs:long"/>
-<xs:element minOccurs="0" name="passwordPolicy" substitutionGroup="tns:policy" type="xs:long"/>
+<xs:element minOccurs="0" name="passwordPolicy" substitutionGroup="tns:abstractPolicy" type="xs:long"/>
 <xs:element minOccurs="0" name="rAttrTemplates">
 <xs:complexType>
 <xs:sequence>
@@ -275,7 +255,7 @@
 <xs:element minOccurs="0" name="derivedAttributes">
 <xs:complexType>
 <xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="attribute" type="tns:attributeTO"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:attribute"/>
 </xs:sequence>
 </xs:complexType>
 </xs:element>
@@ -283,7 +263,7 @@
 <xs:element minOccurs="0" name="propagationStatuses">
 <xs:complexType>
 <xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="propagationStatus" type="tns:propagationStatusTO"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:propagationStatus"/>
 </xs:sequence>
 </xs:complexType>
 </xs:element>
@@ -297,7 +277,7 @@
 <xs:element minOccurs="0" name="virtualAttributes">
 <xs:complexType>
 <xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="attribute" type="tns:attributeTO"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:attribute"/>
 </xs:sequence>
 </xs:complexType>
 </xs:element>
@@ -312,7 +292,7 @@
 <xs:element minOccurs="0" name="attributes">
 <xs:complexType>
 <xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="attribute" type="tns:attributeTO"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:attribute"/>
 </xs:sequence>
 </xs:complexType>
 </xs:element>
@@ -349,7 +329,7 @@
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
-<xs:complexType name="propagationStatusTO">
+<xs:complexType name="propagationStatus">
 <xs:complexContent>
 <xs:extension base="tns:abstractBaseBean">
 <xs:sequence>
@@ -372,7 +352,7 @@
 <xs:element minOccurs="0" name="memberships">
 <xs:complexType>
 <xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="membership" type="tns:membershipTO"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:membership"/>
 </xs:sequence>
 </xs:complexType>
 </xs:element>
@@ -419,23 +399,6 @@
 <xs:element minOccurs="0" name="subject" type="xs:string"/>
 <xs:element minOccurs="0" name="textBody" type="xs:string"/>
 <xs:element minOccurs="0" name="traceLevel" type="tns:traceLevel"/>
-</xs:sequence>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-<xs:complexType name="propagationTaskTO">
-<xs:complexContent>
-<xs:extension base="tns:abstractTaskTO">
-<xs:sequence>
-<xs:element minOccurs="0" name="accountId" type="xs:string"/>
-<xs:element minOccurs="0" name="objectClassName" type="xs:string"/>
-<xs:element minOccurs="0" name="oldAccountId" type="xs:string"/>
-<xs:element minOccurs="0" name="propagationMode" type="tns:propagationMode"/>
-<xs:element minOccurs="0" name="propagationOperation" type="tns:resourceOperation"/>
-<xs:element minOccurs="0" name="resource" type="xs:string"/>
-<xs:element minOccurs="0" name="subjectId" type="xs:long"/>
-<xs:element minOccurs="0" name="subjectType" type="tns:attributableType"/>
-<xs:element minOccurs="0" name="xmlAttributes" type="xs:string"/>
 </xs:sequence>
 </xs:extension>
 </xs:complexContent>
@@ -533,7 +496,7 @@
 </xs:sequence>
 </xs:complexType>
 </xs:element>
-<xs:element minOccurs="0" name="matchingCond" type="tns:nodeCond"/>
+<xs:element minOccurs="0" name="matchingCond" type="xs:string"/>
 <xs:element minOccurs="0" name="virtualAttributes">
 <xs:complexType>
 <xs:sequence>
@@ -541,68 +504,6 @@
 </xs:sequence>
 </xs:complexType>
 </xs:element>
-</xs:sequence>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-<xs:complexType name="nodeCond">
-<xs:complexContent>
-<xs:extension base="tns:abstractBaseBean">
-<xs:sequence>
-<xs:element minOccurs="0" name="attributableCond" type="tns:attributableCond"/>
-<xs:element minOccurs="0" name="attributeCond" type="tns:attributeCond"/>
-<xs:element minOccurs="0" name="entitlementCond" type="tns:entitlementCond"/>
-<xs:element minOccurs="0" name="leftNodeCond" type="tns:nodeCond"/>
-<xs:element minOccurs="0" name="membershipCond" type="tns:membershipCond"/>
-<xs:element minOccurs="0" name="resourceCond" type="tns:resourceCond"/>
-<xs:element minOccurs="0" name="rightNodeCond" type="tns:nodeCond"/>
-<xs:element minOccurs="0" name="type" type="tns:nodeConditionType"/>
-</xs:sequence>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-<xs:complexType name="attributableCond">
-<xs:complexContent>
-<xs:extension base="tns:attributeCond">
-<xs:sequence/>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-<xs:complexType name="attributeCond">
-<xs:complexContent>
-<xs:extension base="tns:abstractBaseBean">
-<xs:sequence>
-<xs:element minOccurs="0" name="expression" type="xs:string"/>
-<xs:element minOccurs="0" name="schema" substitutionGroup="tns:abstractSchema" type="xs:string"/>
-<xs:element minOccurs="0" name="type" type="tns:attributeConditionType"/>
-</xs:sequence>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-<xs:complexType name="entitlementCond">
-<xs:complexContent>
-<xs:extension base="tns:abstractBaseBean">
-<xs:sequence>
-<xs:element minOccurs="0" name="expression" type="xs:string"/>
-</xs:sequence>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-<xs:complexType name="membershipCond">
-<xs:complexContent>
-<xs:extension base="tns:abstractBaseBean">
-<xs:sequence>
-<xs:element minOccurs="0" name="roleId" type="xs:long"/>
-<xs:element minOccurs="0" name="roleName" type="xs:string"/>
-</xs:sequence>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-<xs:complexType name="resourceCond">
-<xs:complexContent>
-<xs:extension base="tns:abstractBaseBean">
-<xs:sequence>
-<xs:element minOccurs="0" name="resourceName" type="xs:string"/>
 </xs:sequence>
 </xs:extension>
 </xs:complexContent>
@@ -632,7 +533,7 @@
 </xs:sequence>
 </xs:complexType>
 </xs:element>
-<xs:element minOccurs="0" name="matchingCond" type="tns:nodeCond"/>
+<xs:element minOccurs="0" name="matchingCond" type="xs:string"/>
 <xs:element minOccurs="0" name="virtualAttributes">
 <xs:complexType>
 <xs:sequence>
@@ -644,31 +545,255 @@
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
-<xs:complexType name="connIdObjectClassTO">
+<xs:complexType name="reportletConfClass">
+<xs:complexContent>
+<xs:extension base="tns:abstractWrappable">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType abstract="true" name="abstractWrappable">
 <xs:complexContent>
 <xs:extension base="tns:abstractBaseBean">
 <xs:sequence>
-<xs:element minOccurs="0" name="type" type="xs:string"/>
+<xs:element minOccurs="0" name="element" type="xs:anyType"/>
 </xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
-<xs:complexType name="connBundleTO">
+<xs:complexType name="workflowFormTO">
 <xs:complexContent>
 <xs:extension base="tns:abstractBaseBean">
 <xs:sequence>
-<xs:element minOccurs="0" name="bundleName" type="xs:string"/>
-<xs:element minOccurs="0" name="connectorName" type="xs:string"/>
-<xs:element minOccurs="0" name="displayName" type="xs:string"/>
-<xs:element minOccurs="0" name="location" type="xs:string"/>
-<xs:element minOccurs="0" name="properties">
+<xs:element minOccurs="0" name="createTime" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="description" type="xs:string"/>
+<xs:element minOccurs="0" name="dueDate" type="xs:dateTime"/>
+<xs:element minOccurs="0" name="key" type="xs:string"/>
+<xs:element minOccurs="0" name="owner" type="xs:string"/>
+<xs:element minOccurs="0" name="workflowFormProperties">
 <xs:complexType>
 <xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="connConfPropSchema" type="tns:connConfPropSchema"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:workflowFormProperty"/>
 </xs:sequence>
 </xs:complexType>
 </xs:element>
-<xs:element minOccurs="0" name="version" type="xs:string"/>
+<xs:element minOccurs="0" name="taskId" type="xs:string"/>
+<xs:element name="userId" type="xs:long"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="workflowFormPropertyTO">
+<xs:complexContent>
+<xs:extension base="tns:abstractBaseBean">
+<xs:sequence>
+<xs:element minOccurs="0" name="datePattern" type="xs:string"/>
+<xs:element minOccurs="0" name="id" type="xs:string"/>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+<xs:element name="readable" type="xs:boolean"/>
+<xs:element name="required" type="xs:boolean"/>
+<xs:element minOccurs="0" name="type" type="tns:workflowFormPropertyType"/>
+<xs:element minOccurs="0" name="value" type="xs:string"/>
+<xs:element name="writable" type="xs:boolean"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="passwordPolicyTO">
+<xs:complexContent>
+<xs:extension base="tns:abstractPolicyTO">
+<xs:sequence>
+<xs:element minOccurs="0" name="specification" type="tns:passwordPolicySpec"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType abstract="true" name="abstractPolicyTO">
+<xs:complexContent>
+<xs:extension base="tns:abstractBaseBean">
+<xs:sequence>
+<xs:element minOccurs="0" name="description" type="xs:string"/>
+<xs:element name="id" type="xs:long"/>
+<xs:element minOccurs="0" name="type" type="tns:policyType"/>
+<xs:element minOccurs="0" name="usedByResources">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="resource" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="usedByRoles">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="role" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="passwordPolicySpec">
+<xs:complexContent>
+<xs:extension base="tns:abstractPolicySpec">
+<xs:sequence>
+<xs:element name="alphanumericRequired" type="xs:boolean"/>
+<xs:element name="digitRequired" type="xs:boolean"/>
+<xs:element name="historyLength" type="xs:int"/>
+<xs:element name="lowercaseRequired" type="xs:boolean"/>
+<xs:element name="maxLength" type="xs:int"/>
+<xs:element name="minLength" type="xs:int"/>
+<xs:element name="mustEndWithAlpha" type="xs:boolean"/>
+<xs:element name="mustEndWithDigit" type="xs:boolean"/>
+<xs:element name="mustEndWithNonAlpha" type="xs:boolean"/>
+<xs:element name="mustStartWithAlpha" type="xs:boolean"/>
+<xs:element name="mustStartWithDigit" type="xs:boolean"/>
+<xs:element name="mustStartWithNonAlpha" type="xs:boolean"/>
+<xs:element name="mustntEndWithAlpha" type="xs:boolean"/>
+<xs:element name="mustntEndWithDigit" type="xs:boolean"/>
+<xs:element name="mustntEndWithNonAlpha" type="xs:boolean"/>
+<xs:element name="mustntStartWithAlpha" type="xs:boolean"/>
+<xs:element name="mustntStartWithDigit" type="xs:boolean"/>
+<xs:element name="mustntStartWithNonAlpha" type="xs:boolean"/>
+<xs:element name="nonAlphanumericRequired" type="xs:boolean"/>
+<xs:element minOccurs="0" name="prefixesNotPermitted">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="prefix" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="schemasNotPermitted">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="schema" substitutionGroup="tns:abstractSchema" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="suffixesNotPermitted">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="suffix" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="uppercaseRequired" type="xs:boolean"/>
+<xs:element minOccurs="0" name="wordsNotPermitted">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="word" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType abstract="true" name="abstractPolicySpec">
+<xs:complexContent>
+<xs:extension base="tns:abstractBaseBean">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="accountPolicyTO">
+<xs:complexContent>
+<xs:extension base="tns:abstractPolicyTO">
+<xs:sequence>
+<xs:element minOccurs="0" name="specification" type="tns:accountPolicySpec"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="accountPolicySpec">
+<xs:complexContent>
+<xs:extension base="tns:abstractPolicySpec">
+<xs:sequence>
+<xs:element name="allLowerCase" type="xs:boolean"/>
+<xs:element name="allUpperCase" type="xs:boolean"/>
+<xs:element name="maxLength" type="xs:int"/>
+<xs:element name="minLength" type="xs:int"/>
+<xs:element minOccurs="0" name="pattern" type="xs:string"/>
+<xs:element name="permittedLoginRetries" type="xs:int"/>
+<xs:element minOccurs="0" name="prefixesNotPermitted">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="prefix" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="propagateSuspension" type="xs:boolean"/>
+<xs:element minOccurs="0" name="schemasNotPermitted">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="schema" substitutionGroup="tns:abstractSchema" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="suffixesNotPermitted">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="suffix" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="wordsNotPermitted">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="word" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="syncPolicyTO">
+<xs:complexContent>
+<xs:extension base="tns:abstractPolicyTO">
+<xs:sequence>
+<xs:element minOccurs="0" name="specification" type="tns:syncPolicySpec"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="syncPolicySpec">
+<xs:complexContent>
+<xs:extension base="tns:abstractPolicySpec">
+<xs:sequence>
+<xs:element minOccurs="0" name="conflictResolutionAction" type="tns:conflictResolutionAction"/>
+<xs:element minOccurs="0" name="roleJavaRule" type="xs:string"/>
+<xs:element minOccurs="0" name="userJavaRule" type="xs:string"/>
+<xs:element minOccurs="0" name="roleAltSearchSchemas">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="roleAltSearchSchema" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="userAltSearchSchemas">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="userAltSearchSchema" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="validator">
+<xs:complexContent>
+<xs:extension base="tns:abstractWrappable">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType abstract="true" name="abstractSchemaTO">
+<xs:complexContent>
+<xs:extension base="tns:abstractBaseBean">
+<xs:sequence>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
 </xs:sequence>
 </xs:extension>
 </xs:complexContent>
@@ -686,15 +811,6 @@
 <xs:element minOccurs="0" name="type" type="tns:attributeSchemaType"/>
 <xs:element name="uniqueConstraint" type="xs:boolean"/>
 <xs:element minOccurs="0" name="validatorClass" type="xs:string"/>
-</xs:sequence>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-<xs:complexType abstract="true" name="abstractSchemaTO">
-<xs:complexContent>
-<xs:extension base="tns:abstractBaseBean">
-<xs:sequence>
-<xs:element minOccurs="0" name="name" type="xs:string"/>
 </xs:sequence>
 </xs:extension>
 </xs:complexContent>
@@ -717,18 +833,227 @@
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
-<xs:complexType name="entitlementTO">
+<xs:complexType name="pushActionClass">
 <xs:complexContent>
 <xs:extension base="tns:abstractWrappable">
 <xs:sequence/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
-<xs:complexType abstract="true" name="abstractWrappable">
+<xs:complexType name="resourceTO">
+<xs:complexContent>
+<xs:extension base="tns:abstractSysInfoTO">
+<xs:sequence>
+<xs:element minOccurs="0" name="accountPolicy" substitutionGroup="tns:abstractPolicy" type="xs:long"/>
+<xs:element minOccurs="0" name="connConfProperties">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="property" type="tns:connConfProperty"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="connectorDisplayName" type="xs:string"/>
+<xs:element minOccurs="0" name="connectorId" type="xs:long"/>
+<xs:element minOccurs="0" name="createTraceLevel" type="tns:traceLevel"/>
+<xs:element minOccurs="0" name="deleteTraceLevel" type="tns:traceLevel"/>
+<xs:element name="enforceMandatoryCondition" type="xs:boolean"/>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+<xs:element minOccurs="0" name="passwordPolicy" substitutionGroup="tns:abstractPolicy" type="xs:long"/>
+<xs:element minOccurs="0" name="propagationActionsClassName" type="xs:string"/>
+<xs:element minOccurs="0" name="propagationMode" type="tns:propagationMode"/>
+<xs:element name="propagationPrimary" type="xs:boolean"/>
+<xs:element name="propagationPriority" type="xs:int"/>
+<xs:element name="randomPwdIfNotProvided" type="xs:boolean"/>
+<xs:element minOccurs="0" name="rmapping" type="tns:mappingTO"/>
+<xs:element minOccurs="0" name="rsyncToken" type="xs:string"/>
+<xs:element minOccurs="0" name="syncPolicy" substitutionGroup="tns:abstractPolicy" type="xs:long"/>
+<xs:element minOccurs="0" name="syncTraceLevel" type="tns:traceLevel"/>
+<xs:element minOccurs="0" name="umapping" type="tns:mappingTO"/>
+<xs:element minOccurs="0" name="updateTraceLevel" type="tns:traceLevel"/>
+<xs:element minOccurs="0" name="usyncToken" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="connConfProperty">
 <xs:complexContent>
 <xs:extension base="tns:abstractBaseBean">
 <xs:sequence>
+<xs:element name="overridable" type="xs:boolean"/>
+<xs:element minOccurs="0" name="schema" substitutionGroup="tns:abstractSchema" type="tns:connConfPropSchema"/>
+<xs:element minOccurs="0" name="values">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="value" type="xs:anyType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="connConfPropSchema">
+<xs:complexContent>
+<xs:extension base="tns:abstractBaseBean">
+<xs:sequence>
+<xs:element name="confidential" type="xs:boolean"/>
+<xs:element minOccurs="0" name="displayName" type="xs:string"/>
+<xs:element minOccurs="0" name="helpMessage" type="xs:string"/>
 <xs:element minOccurs="0" name="name" type="xs:string"/>
+<xs:element name="order" type="xs:int"/>
+<xs:element name="required" type="xs:boolean"/>
+<xs:element minOccurs="0" name="type" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="mappingTO">
+<xs:complexContent>
+<xs:extension base="tns:abstractBaseBean">
+<xs:sequence>
+<xs:element minOccurs="0" name="accountLink" type="xs:string"/>
+<xs:element minOccurs="0" name="items">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" type="tns:mappingItemTO"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="passwordItem" type="tns:mappingItemTO"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="mappingItemTO">
+<xs:complexContent>
+<xs:extension base="tns:abstractBaseBean">
+<xs:sequence>
+<xs:element name="accountid" type="xs:boolean"/>
+<xs:element minOccurs="0" name="extAttrName" type="xs:string"/>
+<xs:element minOccurs="0" name="id" type="xs:long"/>
+<xs:element minOccurs="0" name="intAttrName" type="xs:string"/>
+<xs:element minOccurs="0" name="intMappingType" type="tns:intMappingType"/>
+<xs:element minOccurs="0" name="mandatoryCondition" type="xs:string"/>
+<xs:element name="password" type="xs:boolean"/>
+<xs:element minOccurs="0" name="purpose" type="tns:mappingPurpose"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="connInstanceTO">
+<xs:complexContent>
+<xs:extension base="tns:abstractBaseBean">
+<xs:sequence>
+<xs:element minOccurs="0" name="bundleName" type="xs:string"/>
+<xs:element minOccurs="0" name="capabilities">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="capability" type="tns:connectorCapability"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="configuration">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="property" type="tns:connConfProperty"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="connRequestTimeout" type="xs:int"/>
+<xs:element minOccurs="0" name="connectorName" type="xs:string"/>
+<xs:element minOccurs="0" name="displayName" type="xs:string"/>
+<xs:element name="id" type="xs:long"/>
+<xs:element minOccurs="0" name="location" type="xs:string"/>
+<xs:element minOccurs="0" name="poolConf" type="tns:connPoolConfTO"/>
+<xs:element minOccurs="0" name="version" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="connPoolConfTO">
+<xs:complexContent>
+<xs:extension base="tns:abstractBaseBean">
+<xs:sequence>
+<xs:element minOccurs="0" name="maxIdle" type="xs:int"/>
+<xs:element minOccurs="0" name="maxObjects" type="xs:int"/>
+<xs:element minOccurs="0" name="maxWait" type="xs:long"/>
+<xs:element minOccurs="0" name="minEvictableIdleTimeMillis" type="xs:long"/>
+<xs:element minOccurs="0" name="minIdle" type="xs:int"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="resourceName">
+<xs:complexContent>
+<xs:extension base="tns:abstractWrappable">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="propagationActionClass">
+<xs:complexContent>
+<xs:extension base="tns:abstractWrappable">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="eventCategoryTO">
+<xs:complexContent>
+<xs:extension base="tns:abstractBaseBean">
+<xs:sequence>
+<xs:element minOccurs="0" name="category" type="xs:string"/>
+<xs:element minOccurs="0" name="events">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="event" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="subcategory" type="xs:string"/>
+<xs:element minOccurs="0" name="type" type="tns:eventCategoryType"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="jobClass">
+<xs:complexContent>
+<xs:extension base="tns:abstractWrappable">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="pagedResult">
+<xs:complexContent>
+<xs:extension base="tns:abstractBaseBean">
+<xs:sequence>
+<xs:element minOccurs="0" name="next" type="xs:string"/>
+<xs:element name="page" type="xs:int"/>
+<xs:element minOccurs="0" name="prev" type="xs:string"/>
+<xs:element minOccurs="0" name="result">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" type="tns:abstractBaseBean"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="size" type="xs:int"/>
+<xs:element name="totalCount" type="xs:int"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="bulkAction">
+<xs:complexContent>
+<xs:extension base="tns:abstractBaseBean">
+<xs:sequence>
+<xs:element minOccurs="0" name="operation" type="tns:bulkActionType"/>
+<xs:element minOccurs="0" name="targets">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="target" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
 </xs:sequence>
 </xs:extension>
 </xs:complexContent>
@@ -739,9 +1064,86 @@
 <xs:sequence>
 <xs:element name="id" type="xs:long"/>
 <xs:element name="onSyncope" type="xs:boolean"/>
+<xs:element minOccurs="0" name="resources">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="resource" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
 <xs:element minOccurs="0" name="token" type="xs:string"/>
 <xs:element minOccurs="0" name="type" type="tns:statusModType"/>
 </xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="loggerTO">
+<xs:complexContent>
+<xs:extension base="tns:abstractBaseBean">
+<xs:sequence>
+<xs:element minOccurs="0" name="level" type="tns:loggerLevel"/>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="connBundleTO">
+<xs:complexContent>
+<xs:extension base="tns:abstractBaseBean">
+<xs:sequence>
+<xs:element minOccurs="0" name="bundleName" type="xs:string"/>
+<xs:element minOccurs="0" name="connectorName" type="xs:string"/>
+<xs:element minOccurs="0" name="displayName" type="xs:string"/>
+<xs:element minOccurs="0" name="location" type="xs:string"/>
+<xs:element minOccurs="0" name="properties">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:connConfPropSchema"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element minOccurs="0" name="version" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="resourceAssociationMod">
+<xs:complexContent>
+<xs:extension base="tns:abstractBaseBean">
+<xs:sequence>
+<xs:element name="changePwd" type="xs:boolean"/>
+<xs:element minOccurs="0" name="password" type="xs:string"/>
+<xs:element minOccurs="0" name="resources">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="resource" type="tns:resourceName"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="correlationRuleClass">
+<xs:complexContent>
+<xs:extension base="tns:abstractWrappable">
+<xs:sequence/>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="connIdObjectClassTO">
+<xs:complexContent>
+<xs:extension base="tns:abstractBaseBean">
+<xs:sequence>
+<xs:element minOccurs="0" name="type" type="xs:string"/>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="syncActionClass">
+<xs:complexContent>
+<xs:extension base="tns:abstractWrappable">
+<xs:sequence/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -749,7 +1151,7 @@
 <xs:complexContent>
 <xs:extension base="tns:abstractAttributableMod">
 <xs:sequence>
-<xs:element minOccurs="0" name="accountPolicy" substitutionGroup="tns:policy" type="tns:referenceMod"/>
+<xs:element minOccurs="0" name="accountPolicy" substitutionGroup="tns:abstractPolicy" type="tns:referenceMod"/>
 <xs:element minOccurs="0" name="entitlements">
 <xs:complexType>
 <xs:sequence>
@@ -792,7 +1194,7 @@
 <xs:element name="modRDerAttrTemplates" type="xs:boolean"/>
 <xs:element name="modRVirAttrTemplates" type="xs:boolean"/>
 <xs:element minOccurs="0" name="name" type="xs:string"/>
-<xs:element minOccurs="0" name="passwordPolicy" substitutionGroup="tns:policy" type="tns:referenceMod"/>
+<xs:element minOccurs="0" name="passwordPolicy" substitutionGroup="tns:abstractPolicy" type="tns:referenceMod"/>
 <xs:element minOccurs="0" name="rAttrTemplates">
 <xs:complexType>
 <xs:sequence>
@@ -834,7 +1236,7 @@
 <xs:element minOccurs="0" name="attributesToUpdate">
 <xs:complexType>
 <xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="attributeMod" type="tns:attributeMod"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:attributeMod"/>
 </xs:sequence>
 </xs:complexType>
 </xs:element>
@@ -917,253 +1319,6 @@
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
-<xs:complexType name="workflowTasks">
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="tasks" nillable="true" type="xs:string"/>
-</xs:sequence>
-</xs:complexType>
-<xs:complexType name="accountPolicyTO">
-<xs:complexContent>
-<xs:extension base="tns:abstractPolicyTO">
-<xs:sequence>
-<xs:element minOccurs="0" name="specification" type="tns:accountPolicySpec"/>
-</xs:sequence>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-<xs:complexType abstract="true" name="abstractPolicyTO">
-<xs:complexContent>
-<xs:extension base="tns:abstractBaseBean">
-<xs:sequence>
-<xs:element minOccurs="0" name="description" type="xs:string"/>
-<xs:element name="id" type="xs:long"/>
-<xs:element minOccurs="0" name="type" type="tns:policyType"/>
-</xs:sequence>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-<xs:complexType name="accountPolicySpec">
-<xs:complexContent>
-<xs:extension base="tns:abstractPolicySpec">
-<xs:sequence>
-<xs:element name="allLowerCase" type="xs:boolean"/>
-<xs:element name="allUpperCase" type="xs:boolean"/>
-<xs:element name="maxLength" type="xs:int"/>
-<xs:element name="minLength" type="xs:int"/>
-<xs:element minOccurs="0" name="pattern" type="xs:string"/>
-<xs:element name="permittedLoginRetries" type="xs:int"/>
-<xs:element minOccurs="0" name="prefixesNotPermitted">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="prefix" type="xs:string"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
-<xs:element name="propagateSuspension" type="xs:boolean"/>
-<xs:element minOccurs="0" name="schemasNotPermitted">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="schema" substitutionGroup="tns:abstractSchema" type="xs:string"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
-<xs:element minOccurs="0" name="suffixesNotPermitted">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="suffix" type="xs:string"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
-<xs:element minOccurs="0" name="wordsNotPermitted">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="word" type="xs:string"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
-</xs:sequence>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-<xs:complexType abstract="true" name="abstractPolicySpec">
-<xs:complexContent>
-<xs:extension base="tns:abstractBaseBean">
-<xs:sequence/>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-<xs:complexType name="passwordPolicyTO">
-<xs:complexContent>
-<xs:extension base="tns:abstractPolicyTO">
-<xs:sequence>
-<xs:element minOccurs="0" name="specification" type="tns:passwordPolicySpec"/>
-</xs:sequence>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-<xs:complexType name="passwordPolicySpec">
-<xs:complexContent>
-<xs:extension base="tns:abstractPolicySpec">
-<xs:sequence>
-<xs:element name="alphanumericRequired" type="xs:boolean"/>
-<xs:element name="digitRequired" type="xs:boolean"/>
-<xs:element name="historyLength" type="xs:int"/>
-<xs:element name="lowercaseRequired" type="xs:boolean"/>
-<xs:element name="maxLength" type="xs:int"/>
-<xs:element name="minLength" type="xs:int"/>
-<xs:element name="mustEndWithAlpha" type="xs:boolean"/>
-<xs:element name="mustEndWithDigit" type="xs:boolean"/>
-<xs:element name="mustEndWithNonAlpha" type="xs:boolean"/>
-<xs:element name="mustStartWithAlpha" type="xs:boolean"/>
-<xs:element name="mustStartWithDigit" type="xs:boolean"/>
-<xs:element name="mustStartWithNonAlpha" type="xs:boolean"/>
-<xs:element name="mustntEndWithAlpha" type="xs:boolean"/>
-<xs:element name="mustntEndWithDigit" type="xs:boolean"/>
-<xs:element name="mustntEndWithNonAlpha" type="xs:boolean"/>
-<xs:element name="mustntStartWithAlpha" type="xs:boolean"/>
-<xs:element name="mustntStartWithDigit" type="xs:boolean"/>
-<xs:element name="mustntStartWithNonAlpha" type="xs:boolean"/>
-<xs:element name="nonAlphanumericRequired" type="xs:boolean"/>
-<xs:element minOccurs="0" name="prefixesNotPermitted">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="prefix" type="xs:string"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
-<xs:element minOccurs="0" name="schemasNotPermitted">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="schema" substitutionGroup="tns:abstractSchema" type="xs:string"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
-<xs:element minOccurs="0" name="suffixesNotPermitted">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="suffix" type="xs:string"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
-<xs:element name="uppercaseRequired" type="xs:boolean"/>
-<xs:element minOccurs="0" name="wordsNotPermitted">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="word" type="xs:string"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
-</xs:sequence>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-<xs:complexType name="syncPolicyTO">
-<xs:complexContent>
-<xs:extension base="tns:abstractPolicyTO">
-<xs:sequence>
-<xs:element minOccurs="0" name="specification" type="tns:syncPolicySpec"/>
-</xs:sequence>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-<xs:complexType name="syncPolicySpec">
-<xs:complexContent>
-<xs:extension base="tns:abstractPolicySpec">
-<xs:sequence>
-<xs:element minOccurs="0" name="conflictResolutionAction" type="tns:conflictResolutionAction"/>
-<xs:element minOccurs="0" name="roleJavaRule" type="xs:string"/>
-<xs:element minOccurs="0" name="userJavaRule" type="xs:string"/>
-<xs:element minOccurs="0" name="roleAltSearchSchemas">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="roleAltSearchSchema" type="xs:string"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
-<xs:element minOccurs="0" name="userAltSearchSchemas">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="userAltSearchSchema" type="xs:string"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
-</xs:sequence>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-<xs:complexType name="bulkActionRes">
-<xs:complexContent>
-<xs:extension base="tns:abstractBaseBean">
-<xs:sequence>
-<xs:element minOccurs="0" name="results">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="result" type="tns:result"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
-</xs:sequence>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-<xs:complexType name="result">
-<xs:complexContent>
-<xs:extension base="tns:abstractBaseBean">
-<xs:sequence>
-<xs:element minOccurs="0" name="key" type="xs:string"/>
-<xs:element minOccurs="0" name="value" type="tns:bulkActionStatus"/>
-</xs:sequence>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-<xs:complexType name="workflowFormTO">
-<xs:complexContent>
-<xs:extension base="tns:abstractBaseBean">
-<xs:sequence>
-<xs:element minOccurs="0" name="createTime" type="xs:dateTime"/>
-<xs:element minOccurs="0" name="description" type="xs:string"/>
-<xs:element minOccurs="0" name="dueDate" type="xs:dateTime"/>
-<xs:element minOccurs="0" name="key" type="xs:string"/>
-<xs:element minOccurs="0" name="owner" type="xs:string"/>
-<xs:element minOccurs="0" name="workflowFormProperties">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="workflowFormProperty" type="tns:workflowFormPropertyTO"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
-<xs:element minOccurs="0" name="taskId" type="xs:string"/>
-<xs:element name="userId" type="xs:long"/>
-</xs:sequence>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-<xs:complexType name="workflowFormPropertyTO">
-<xs:complexContent>
-<xs:extension base="tns:abstractBaseBean">
-<xs:sequence>
-<xs:element minOccurs="0" name="datePattern" type="xs:string"/>
-<xs:element minOccurs="0" name="id" type="xs:string"/>
-<xs:element minOccurs="0" name="name" type="xs:string"/>
-<xs:element name="readable" type="xs:boolean"/>
-<xs:element name="required" type="xs:boolean"/>
-<xs:element minOccurs="0" name="type" type="tns:workflowFormPropertyType"/>
-<xs:element minOccurs="0" name="value" type="xs:string"/>
-<xs:element name="writable" type="xs:boolean"/>
-</xs:sequence>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-<xs:complexType name="loggerTO">
-<xs:complexContent>
-<xs:extension base="tns:abstractBaseBean">
-<xs:sequence>
-<xs:element minOccurs="0" name="level" type="tns:loggerLevel"/>
-<xs:element minOccurs="0" name="name" type="xs:string"/>
-</xs:sequence>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
 <xs:complexType name="userMod">
 <xs:complexContent>
 <xs:extension base="tns:abstractAttributableMod">
@@ -1212,78 +1367,17 @@
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
-<xs:complexType name="propagationActionClassTO">
+<xs:complexType name="mailTemplate">
 <xs:complexContent>
 <xs:extension base="tns:abstractWrappable">
 <xs:sequence/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
-<xs:complexType name="resourceTO">
+<xs:complexType name="entitlementTO">
 <xs:complexContent>
-<xs:extension base="tns:abstractSysInfoTO">
-<xs:sequence>
-<xs:element minOccurs="0" name="accountPolicy" substitutionGroup="tns:policy" type="xs:long"/>
-<xs:element minOccurs="0" name="connConfProperties">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="property" type="tns:connConfProperty"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
-<xs:element minOccurs="0" name="connectorDisplayName" type="xs:string"/>
-<xs:element minOccurs="0" name="connectorId" type="xs:long"/>
-<xs:element minOccurs="0" name="createTraceLevel" type="tns:traceLevel"/>
-<xs:element minOccurs="0" name="deleteTraceLevel" type="tns:traceLevel"/>
-<xs:element name="enforceMandatoryCondition" type="xs:boolean"/>
-<xs:element minOccurs="0" name="name" type="xs:string"/>
-<xs:element minOccurs="0" name="passwordPolicy" substitutionGroup="tns:policy" type="xs:long"/>
-<xs:element minOccurs="0" name="propagationActionsClassName" type="xs:string"/>
-<xs:element minOccurs="0" name="propagationMode" type="tns:propagationMode"/>
-<xs:element name="propagationPrimary" type="xs:boolean"/>
-<xs:element name="propagationPriority" type="xs:int"/>
-<xs:element name="randomPwdIfNotProvided" type="xs:boolean"/>
-<xs:element minOccurs="0" name="rmapping" type="tns:mappingTO"/>
-<xs:element minOccurs="0" name="rsyncToken" type="xs:string"/>
-<xs:element minOccurs="0" name="syncPolicy" substitutionGroup="tns:policy" type="xs:long"/>
-<xs:element minOccurs="0" name="syncTraceLevel" type="tns:traceLevel"/>
-<xs:element minOccurs="0" name="umapping" type="tns:mappingTO"/>
-<xs:element minOccurs="0" name="updateTraceLevel" type="tns:traceLevel"/>
-<xs:element minOccurs="0" name="usyncToken" type="xs:string"/>
-</xs:sequence>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-<xs:complexType name="mappingTO">
-<xs:complexContent>
-<xs:extension base="tns:abstractBaseBean">
-<xs:sequence>
-<xs:element minOccurs="0" name="accountLink" type="xs:string"/>
-<xs:element minOccurs="0" name="items">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="item" type="tns:mappingItemTO"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
-<xs:element minOccurs="0" name="passwordItem" type="tns:mappingItemTO"/>
-</xs:sequence>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-<xs:complexType name="mappingItemTO">
-<xs:complexContent>
-<xs:extension base="tns:abstractBaseBean">
-<xs:sequence>
-<xs:element name="accountid" type="xs:boolean"/>
-<xs:element minOccurs="0" name="extAttrName" type="xs:string"/>
-<xs:element minOccurs="0" name="id" type="xs:long"/>
-<xs:element minOccurs="0" name="intAttrName" type="xs:string"/>
-<xs:element minOccurs="0" name="intMappingType" type="tns:intMappingType"/>
-<xs:element minOccurs="0" name="mandatoryCondition" type="xs:string"/>
-<xs:element name="password" type="xs:boolean"/>
-<xs:element minOccurs="0" name="purpose" type="tns:mappingPurpose"/>
-</xs:sequence>
+<xs:extension base="tns:abstractWrappable">
+<xs:sequence/>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
@@ -1291,7 +1385,7 @@
 <xs:complexContent>
 <xs:extension base="tns:abstractBaseBean">
 <xs:sequence>
-<xs:element minOccurs="0" name="about" type="tns:nodeCond"/>
+<xs:element minOccurs="0" name="about" type="xs:string"/>
 <xs:element minOccurs="0" name="events">
 <xs:complexType>
 <xs:sequence>
@@ -1302,7 +1396,7 @@
 <xs:element minOccurs="0" name="id" type="xs:long"/>
 <xs:element minOccurs="0" name="recipientAttrName" type="xs:string"/>
 <xs:element minOccurs="0" name="recipientAttrType" type="tns:intMappingType"/>
-<xs:element minOccurs="0" name="recipients" type="tns:nodeCond"/>
+<xs:element minOccurs="0" name="recipients" type="xs:string"/>
 <xs:element name="selfAsRecipient" type="xs:boolean"/>
 <xs:element minOccurs="0" name="sender" type="xs:string"/>
 <xs:element minOccurs="0" name="subject" type="xs:string"/>
@@ -1312,134 +1406,31 @@
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
-<xs:complexType name="workflowDefinitionTO">
+<xs:complexType name="bulkActionResult">
 <xs:complexContent>
 <xs:extension base="tns:abstractBaseBean">
 <xs:sequence>
-<xs:element minOccurs="0" name="id" type="xs:string"/>
-<xs:element minOccurs="0" name="xmlDefinition" type="xs:string"/>
+<xs:element minOccurs="0" name="result">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="item" type="tns:result"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
 </xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
-<xs:complexType name="configurationTO">
+<xs:complexType name="result">
 <xs:complexContent>
 <xs:extension base="tns:abstractBaseBean">
 <xs:sequence>
 <xs:element minOccurs="0" name="key" type="xs:string"/>
-<xs:element minOccurs="0" name="value" type="xs:string"/>
+<xs:element minOccurs="0" name="value" type="tns:bulkActionStatus"/>
 </xs:sequence>
 </xs:extension>
 </xs:complexContent>
 </xs:complexType>
-<xs:complexType name="syncActionClassTO">
-<xs:complexContent>
-<xs:extension base="tns:abstractWrappable">
-<xs:sequence/>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-<xs:complexType name="jobClassTO">
-<xs:complexContent>
-<xs:extension base="tns:abstractWrappable">
-<xs:sequence/>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-<xs:complexType name="reportletConfClasses">
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="confClasses" nillable="true" type="xs:string"/>
-</xs:sequence>
-</xs:complexType>
-<xs:complexType name="correlationRuleClassTO">
-<xs:complexContent>
-<xs:extension base="tns:abstractWrappable">
-<xs:sequence/>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-<xs:complexType name="validatorTO">
-<xs:complexContent>
-<xs:extension base="tns:abstractWrappable">
-<xs:sequence/>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-<xs:complexType name="bulkAction">
-<xs:complexContent>
-<xs:extension base="tns:abstractBaseBean">
-<xs:sequence>
-<xs:element minOccurs="0" name="operation" type="tns:bulkActionType"/>
-<xs:element minOccurs="0" name="targets">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="target" type="xs:string"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
-</xs:sequence>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-<xs:complexType name="mailTemplateTO">
-<xs:complexContent>
-<xs:extension base="tns:abstractWrappable">
-<xs:sequence/>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-<xs:complexType name="resourceNameTO">
-<xs:complexContent>
-<xs:extension base="tns:abstractWrappable">
-<xs:sequence/>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-<xs:complexType name="bulkAssociationAction">
-<xs:complexContent>
-<xs:extension base="tns:abstractBaseBean">
-<xs:sequence>
-<xs:element minOccurs="0" name="operation" type="tns:resourceAssociationActionType"/>
-<xs:element minOccurs="0" name="targets">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" name="target" type="xs:long"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
-</xs:sequence>
-</xs:extension>
-</xs:complexContent>
-</xs:complexType>
-<xs:simpleType name="connectorCapability">
-<xs:restriction base="xs:string">
-<xs:enumeration value="ONE_PHASE_CREATE"/>
-<xs:enumeration value="TWO_PHASES_CREATE"/>
-<xs:enumeration value="ONE_PHASE_UPDATE"/>
-<xs:enumeration value="TWO_PHASES_UPDATE"/>
-<xs:enumeration value="ONE_PHASE_DELETE"/>
-<xs:enumeration value="TWO_PHASES_DELETE"/>
-<xs:enumeration value="SEARCH"/>
-<xs:enumeration value="SYNC"/>
-</xs:restriction>
-</xs:simpleType>
-<xs:simpleType name="propagationTaskExecStatus">
-<xs:restriction base="xs:string">
-<xs:enumeration value="CREATED"/>
-<xs:enumeration value="SUBMITTED"/>
-<xs:enumeration value="UNSUBMITTED"/>
-<xs:enumeration value="SUCCESS"/>
-<xs:enumeration value="FAILURE"/>
-</xs:restriction>
-</xs:simpleType>
-<xs:simpleType name="traceLevel">
-<xs:restriction base="xs:string">
-<xs:enumeration value="NONE"/>
-<xs:enumeration value="FAILURES"/>
-<xs:enumeration value="SUMMARY"/>
-<xs:enumeration value="ALL"/>
-</xs:restriction>
-</xs:simpleType>
 <xs:simpleType name="propagationMode">
 <xs:restriction base="xs:string">
 <xs:enumeration value="ONE_PHASE"/>
@@ -1460,6 +1451,23 @@
 <xs:enumeration value="MEMBERSHIP"/>
 </xs:restriction>
 </xs:simpleType>
+<xs:simpleType name="propagationTaskExecStatus">
+<xs:restriction base="xs:string">
+<xs:enumeration value="CREATED"/>
+<xs:enumeration value="SUBMITTED"/>
+<xs:enumeration value="UNSUBMITTED"/>
+<xs:enumeration value="SUCCESS"/>
+<xs:enumeration value="FAILURE"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="traceLevel">
+<xs:restriction base="xs:string">
+<xs:enumeration value="NONE"/>
+<xs:enumeration value="FAILURES"/>
+<xs:enumeration value="SUMMARY"/>
+<xs:enumeration value="ALL"/>
+</xs:restriction>
+</xs:simpleType>
 <xs:simpleType name="userReportletConfFeature">
 <xs:restriction base="xs:string">
 <xs:enumeration value="id"/>
@@ -1475,26 +1483,6 @@
 <xs:enumeration value="resources"/>
 </xs:restriction>
 </xs:simpleType>
-<xs:simpleType name="attributeConditionType">
-<xs:restriction base="xs:string">
-<xs:enumeration value="LIKE"/>
-<xs:enumeration value="EQ"/>
-<xs:enumeration value="GT"/>
-<xs:enumeration value="LT"/>
-<xs:enumeration value="GE"/>
-<xs:enumeration value="LE"/>
-<xs:enumeration value="ISNULL"/>
-<xs:enumeration value="ISNOTNULL"/>
-</xs:restriction>
-</xs:simpleType>
-<xs:simpleType name="nodeConditionType">
-<xs:restriction base="xs:string">
-<xs:enumeration value="LEAF"/>
-<xs:enumeration value="NOT_LEAF"/>
-<xs:enumeration value="AND"/>
-<xs:enumeration value="OR"/>
-</xs:restriction>
-</xs:simpleType>
 <xs:simpleType name="roleReportletConfFeature">
 <xs:restriction base="xs:string">
 <xs:enumeration value="id"/>
@@ -1506,21 +1494,13 @@
 <xs:enumeration value="resources"/>
 </xs:restriction>
 </xs:simpleType>
-<xs:simpleType name="attributeSchemaType">
+<xs:simpleType name="workflowFormPropertyType">
 <xs:restriction base="xs:string">
 <xs:enumeration value="String"/>
 <xs:enumeration value="Long"/>
-<xs:enumeration value="Double"/>
-<xs:enumeration value="Boolean"/>
-<xs:enumeration value="Date"/>
 <xs:enumeration value="Enum"/>
-</xs:restriction>
-</xs:simpleType>
-<xs:simpleType name="statusModType">
-<xs:restriction base="xs:string">
-<xs:enumeration value="ACTIVATE"/>
-<xs:enumeration value="SUSPEND"/>
-<xs:enumeration value="REACTIVATE"/>
+<xs:enumeration value="Date"/>
+<xs:enumeration value="Boolean"/>
 </xs:restriction>
 </xs:simpleType>
 <xs:simpleType name="policyType">
@@ -1541,31 +1521,14 @@
 <xs:enumeration value="ALL"/>
 </xs:restriction>
 </xs:simpleType>
-<xs:simpleType name="bulkActionStatus">
-<xs:restriction base="xs:string">
-<xs:enumeration value="SUCCESS"/>
-<xs:enumeration value="FAILURE"/>
-</xs:restriction>
-</xs:simpleType>
-<xs:simpleType name="workflowFormPropertyType">
+<xs:simpleType name="attributeSchemaType">
 <xs:restriction base="xs:string">
 <xs:enumeration value="String"/>
 <xs:enumeration value="Long"/>
-<xs:enumeration value="Enum"/>
-<xs:enumeration value="Date"/>
+<xs:enumeration value="Double"/>
 <xs:enumeration value="Boolean"/>
-</xs:restriction>
-</xs:simpleType>
-<xs:simpleType name="loggerLevel">
-<xs:restriction base="xs:string">
-<xs:enumeration value="OFF"/>
-<xs:enumeration value="FATAL"/>
-<xs:enumeration value="ERROR"/>
-<xs:enumeration value="WARN"/>
-<xs:enumeration value="INFO"/>
-<xs:enumeration value="DEBUG"/>
-<xs:enumeration value="TRACE"/>
-<xs:enumeration value="ALL"/>
+<xs:enumeration value="Date"/>
+<xs:enumeration value="Enum"/>
 </xs:restriction>
 </xs:simpleType>
 <xs:simpleType name="intMappingType">
@@ -1595,6 +1558,28 @@
 <xs:enumeration value="PROPAGATION"/>
 </xs:restriction>
 </xs:simpleType>
+<xs:simpleType name="connectorCapability">
+<xs:restriction base="xs:string">
+<xs:enumeration value="ONE_PHASE_CREATE"/>
+<xs:enumeration value="TWO_PHASES_CREATE"/>
+<xs:enumeration value="ONE_PHASE_UPDATE"/>
+<xs:enumeration value="TWO_PHASES_UPDATE"/>
+<xs:enumeration value="ONE_PHASE_DELETE"/>
+<xs:enumeration value="TWO_PHASES_DELETE"/>
+<xs:enumeration value="SEARCH"/>
+<xs:enumeration value="SYNC"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="eventCategoryType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="REST"/>
+<xs:enumeration value="TASK"/>
+<xs:enumeration value="PROPAGATION"/>
+<xs:enumeration value="SYNCHRONIZATION"/>
+<xs:enumeration value="PUSH"/>
+<xs:enumeration value="CUSTOM"/>
+</xs:restriction>
+</xs:simpleType>
 <xs:simpleType name="bulkActionType">
 <xs:restriction base="xs:string">
 <xs:enumeration value="DELETE"/>
@@ -1604,129 +1589,38 @@
 <xs:enumeration value="EXECUTE"/>
 </xs:restriction>
 </xs:simpleType>
-<xs:simpleType name="resourceAssociationActionType">
+<xs:simpleType name="statusModType">
 <xs:restriction base="xs:string">
-<xs:enumeration value="UNLINK"/>
-<xs:enumeration value="DEPROVISION"/>
-<xs:enumeration value="UNASSIGN"/>
+<xs:enumeration value="ACTIVATE"/>
+<xs:enumeration value="SUSPEND"/>
+<xs:enumeration value="REACTIVATE"/>
 </xs:restriction>
 </xs:simpleType>
-<xs:element name="connInstances">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:connInstance"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
-<xs:element name="tasks">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:task"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
-<xs:element name="propagationActionClasss">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:propagationActionClass"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
-<xs:element name="reports">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:report"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
-<xs:element name="connIdObjectClasss">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:connIdObjectClass"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
-<xs:element name="connectorBundles">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:connectorBundle"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
-<xs:element name="schemas">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:schema"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
-<xs:element name="entitlements">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:entitlement"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
-<xs:element name="connConfPropertys">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:connConfProperty"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
-<xs:element name="resources">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:resource"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
-<xs:element name="notifications">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:notification"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
-<xs:element name="policys">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:policy"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
-<xs:element name="syncActionClasss">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:syncActionClass"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
+<xs:simpleType name="loggerLevel">
+<xs:restriction base="xs:string">
+<xs:enumeration value="OFF"/>
+<xs:enumeration value="FATAL"/>
+<xs:enumeration value="ERROR"/>
+<xs:enumeration value="WARN"/>
+<xs:enumeration value="INFO"/>
+<xs:enumeration value="DEBUG"/>
+<xs:enumeration value="TRACE"/>
+<xs:enumeration value="ALL"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="bulkActionStatus">
+<xs:restriction base="xs:string">
+<xs:enumeration value="SUCCESS"/>
+<xs:enumeration value="FAILURE"/>
+<xs:enumeration value="CREATED"/>
+<xs:enumeration value="SUBMITTED"/>
+<xs:enumeration value="UNSUBMITTED"/>
+</xs:restriction>
+</xs:simpleType>
 <xs:element name="configurations">
 <xs:complexType>
 <xs:sequence>
 <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:configuration"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
-<xs:element name="users">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:user"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
-<xs:element name="jobClasss">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:jobClass"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
-<xs:element name="roles">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:role"/>
 </xs:sequence>
 </xs:complexType>
 </xs:element>
@@ -1737,17 +1631,10 @@
 </xs:sequence>
 </xs:complexType>
 </xs:element>
-<xs:element name="abstractSchemas">
+<xs:element name="reportletConfClasss">
 <xs:complexType>
 <xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:abstractSchema"/>
-</xs:sequence>
-</xs:complexType>
-</xs:element>
-<xs:element name="validators">
-<xs:complexType>
-<xs:sequence>
-<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:validator"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:reportletConfClass"/>
 </xs:sequence>
 </xs:complexType>
 </xs:element>
@@ -1758,10 +1645,94 @@
 </xs:sequence>
 </xs:complexType>
 </xs:element>
+<xs:element name="connIdObjectClasss">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:connIdObjectClass"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="syncActionClasss">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:syncActionClass"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="validators">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:validator"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="abstractSchemas">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:abstractSchema"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="roles">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:role"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="pushActionClasss">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:pushActionClass"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="resources">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:resource"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="connConfPropertys">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:connConfProperty"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="connInstances">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:connInstance"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
 <xs:element name="resourceNames">
 <xs:complexType>
 <xs:sequence>
 <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:resourceName"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="propagationActionClasss">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:propagationActionClass"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="eventCategorys">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:eventCategory"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="jobClasss">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:jobClass"/>
 </xs:sequence>
 </xs:complexType>
 </xs:element>
@@ -1772,6 +1743,34 @@
 </xs:sequence>
 </xs:complexType>
 </xs:element>
+<xs:element name="entitlements">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:entitlement"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="abstractPolicys">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:abstractPolicy"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="notifications">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:notification"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="connectorBundles">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:connectorBundle"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
 <xs:element name="loggers">
 <xs:complexType>
 <xs:sequence>
@@ -1779,5 +1778,14 @@
 </xs:sequence>
 </xs:complexType>
 </xs:element>
+<xs:element name="schemas">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:schema"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
 </xs:schema>
-</grammars><resources base="http://rovere:9080/syncope/rest/"><resource path="/connectors" id="org.apache.syncope.core.services.ConnectorServiceImpl"><method name="GET" id="list"><request><param name="lang" style="query" type="xs:string"/></request><response><representation mediaType="application/xml" element="syncope1:connInstances"/><representation mediaType="application/json" element="syncope1:connInstances"/></response></method><method name="POST" id="create"><request><representation mediaType="application/xml" element="syncope1:connInstance"/><representation mediaType="application/json" element="syncope1:connInstance"/></request><response><representation mediaType="application/xml"/><representation mediaType="application/json"/></response></method><resource path="/bulk"><method name="POST" id="bulk"><request><representation mediaType="application/xml" element="syncope1:bulkAction"/><representation mediaType="application/json" element="syncope1:bulkAction"/></request><response><representation mediaType="application/xml" element="syncope1:bulkActionRes"/><representation mediaType="application/json" element="syncope1:bulkActionRes"/></response></method></resource><resource path="/bundles"><method name="GET" id="getBundles"><request><param name="lang" style="query" type="xs:string"/></request><response><representation mediaType="application/xml" element="syncope1:connectorBundles"/><representation mediaType="application/json" element="syncope1:connectorBundles"/></response></method></resource><resource path="/byResource/{resourceName}"><param name="resourceName" style="template" type="xs:string"/><method name="GET" id="readByResource"><request></request><response><representation mediaType="application/xml" element="syncope1:connInstance"/><representation mediaType="application/json" element="syncope1:connInstance"/></response></method></resource><resource path="/check"><method name="POST" id="check"><request><representation mediaType="application/xml" element="syncope1:connInstance"/><representation mediaType="application/json" element="syncope1:connInstance"/></request><response><representation mediaType="application/xml"><param name="result" style="plain" type="xs:boolean"/></representation><representation mediaType="application/json"><param name="result" style="plain" type="xs:boolean"/></representation></response></method></resource><resource path="/reload"><method name="POST" id="reload"><response status="204"></response></method></resource><resource path="/{connInstanceId}"><param name="connInstanceId" style="template" type="xs:long"/><method name="DELETE" id="delete"><request></request><response status="204"></response></method><method name="GET" id="read"><request></request><response><representation mediaType="application/xml" element="syncope1:connInstance"/><representation mediaType="application/json" element="syncope1:connInstance"/></response></method><method name="PUT" id="update"><request><representation mediaType="application/xml" element="syncope1:connInstance"/><representation mediaType="application/json" element="syncope1:connInstance"/></request><response status="204"></response></method></resource><resource path="/{connInstanceId}/configuration"><param name="connInstanceId" style="template" type="xs:long"/><method name="GET" id="getConfigurationProperties"><request></request><response><representation mediaType="application/xml" element="syncope1:connConfPropertys"/><representation mediaType="application/json" element="syncope1:connConfPropertys"/></response></method></resource><resource path="/{connInstanceId}/schemaNames"><param name="connInstanceId" style="template" type="xs:long"/><method name="POST" id="getSchemaNames"><request><representation mediaType="application/xml" element="syncope1:connInstance"/><representation mediaType="application/json" element="syncope1:connInstance"/><param name="includeSpecial" style="query" default="false" type="xs:boolean"/></request><response><representation mediaType="application/xml" element="syncope1:schemas"/><representation mediaType="application/json" element="syncope1:schemas"/></response></method></resource><resource path="/{connInstanceId}/supportedObjectClasses"><param name="connInstanceId" style="template" type="xs:long"/><method name="POST" id="getSupportedObjectClasses"><request><representation mediaType="application/xml" element="syncope1:connInstance"/><representation mediaType="application/json" element="syncope1:connInstance"/></request><response><representation mediaType="application/xml" element="syncope1:connIdObjectClasss"/><representation mediaType="application/json" element="syncope1:connIdObjectClasss"/></response></method></resource></resource><resource path="/configurations" id="org.apache.syncope.core.services.ConfigurationServiceImpl"><method name="GET" id="list"><response><representation mediaType="application/xml" element="syncope1:configurations"/><representation mediaType="application/json" element="syncope1:configurations"/></response></method><method name="POST" id="create"><request><representation mediaType="application/xml" element="syncope1:configuration"/><representation mediaType="application/json" element="syncope1:configuration"/></request><response><representation mediaType="application/xml"/><representation mediaType="application/json"/></response></method><resource path="/mailTemplates"><method name="GET" id="getMailTemplates"><response><representation mediaType="application/xml" element="syncope1:mailTemplates"/><representation mediaType="application/json" element="syncope1:mailTemplates"/></response></method></resource><resource path="/stream"><method name="GET" id="export"><response><representation mediaType="application/xml"/><representation mediaType="application/json"/></response></method></resource><resource path="/validators"><method name="GET" id="getValidators"><response><representation mediaType="application/xml" element="syncope1:validators"/><representation mediaType="application/json" element="syncope1:validators"/></response></method></resource><resource path="/{key}"><param name="key" style="template" type="xs:string"/><method name="DELETE" id="delete"><request></request><response status="204"></response></method><method name="GET" id="read"><request></request><response><representation mediaType="application/xml" element="syncope1:configuration"/><representation mediaType="application/json" element="syncope1:configuration"/></response></method><method name="PUT" id="update"><request><representation mediaType="application/xml" element="syncope1:configuration"/><representation mediaType="application/json" element="syncope1:configuration"/></request><response status="204"></response></method></resource></resource><resource path="/entitlements" id="org.apache.syncope.core.services.EntitlementServiceImpl"><method name="GET" id="getAllEntitlements"><response><representation mediaType="application/xml" element="syncope1:entitlements"/><representation mediaType="application/json" element="syncope1:entitlements"/></response></method><resource path="/own"><method name="GET" id="getOwnEntitlements"><response><representation mediaType="application/xml" element="syncope1:entitlements"/><representation mediaType="application/json" element="syncope1:entitlements"/></response></method></resource></resource><resource path="/logger/{type}" id="org.apache.syncope.core.services.LoggerServiceImpl"><param name="type" style="template" type="xs:string"><option value="LOG"/><option value="AUDIT"/></param><method name="GET" id="list"><request></request><response><representation mediaType="application/xml" element="syncope1:loggers"/><representation mediaType="application/json" element="syncope1:loggers"/></response></method><resource path="/{name}"><param name="type" style="template" type="xs:string"><option value="LOG"/><option value="AUDIT"/></param><param name="name" style="template" type="xs:string"/><method name="DELETE" id="delete"><request></request><response status="204"></response></method><method name="GET" id="read"><request></request><response><representation mediaType="application/xml" element="syncope1:logger"/><representation mediaType="application/json" element="syncope1:logger"/></response></method></resource><resource path="/{name}/level"><param name="type" style="template" type="xs:string"><option value="LOG"/><option value="AUDIT"/></param><param name="name" style="template" type="xs:string"/><method name="PUT" id="update"><request><representation mediaType="application/xml" element="syncope1:logger"/><representation mediaType="application/json" element="syncope1:logger"/></request><response status="204"></response></method></resource></resource><resource path="/notifications" id="org.apache.syncope.core.services.NotificationServiceImpl"><method name="GET" id="list"><response><representation mediaType="application/xml" element="syncope1:notifications"/><representation mediaType="application/json" element="syncope1:notifications"/></response></method><method name="POST" id="create"><request><representation mediaType="application/xml" element="syncope1:notification"/><representation mediaType="application/json" element="syncope1:notification"/></request><response><representation mediaType="application/xml"/><representation mediaType="application/json"/></response></method><resource path="/{notificationId}"><param name="notificationId" style="template" type="xs:long"/><method name="DELETE" id="delete"><request></request><response status="204"></response></method><method name="GET" id="read"><request></request><response><representation mediaType="application/xml" element="syncope1:notification"/><representation mediaType="application/json" element="syncope1:notification"/></response></method><method name="PUT" id="update"><request><representation mediaType="application/xml" element="syncope1:notification"/><representation mediaType="application/json" element="syncope1:notification"/></request><response status="204"></response></method></resource></resource><resource path="/policies" id="org.apache.syncope.core.services.PolicyServiceImpl"><param name="type" style="matrix" type="xs:string"><option value="ACCOUNT"/><option value="GLOBAL_ACCOUNT"/><option value="PASSWORD"/><option value="GLOBAL_PASSWORD"/><option value="SYNC"/><option value="GLOBAL_SYNC"/></param><method name="GET" id="list"><request></request><response><representation mediaType="application/xml" element="syncope1:policys"/><representation mediaType="application/json" element="syncope1:policys"/></response></method><method name="POST" id="create"><request><representation mediaType="application/xml" element="syncope1:policy"/><representation mediaType="application/json" element="syncope1:policy"/></request><response><representation mediaType="application/xml"/><representation mediaType="application/json"/></response></method><resource path="/global"><param name="type" style="matrix" type="xs:string"><option value="ACCOUNT"/><option value="GLOBAL_ACCOUNT"/><option value="PASSWORD"/><option value="GLOBAL_PASSWORD"/><option value="SYNC"/><option value="GLOBAL_SYNC"/></param><method name="GET" id="readGlobal"><request></request><response><representation mediaType="application/xml" element="syncope1:policy"/><representation mediaType="application/json" element="syncope1:policy"/></response></method></resource><resource path="/syncCorrelationRuleClasses"><method name="GET" id="getSyncCorrelationRuleClasses"><response><representation mediaType="application/xml" element="syncope1:correlationRuleClasss"/><representation mediaType="application/json" element="syncope1:correlationRuleClasss"/></response></method></resource><resource path="/{policyId}"><param name="policyId" style="template" type="xs:long"/><method name="DELETE" id="delete"><request></request><response status="204"></response></method><method name="GET" id="read"><request></request><response><representation mediaType="application/xml" element="syncope1:policy"/><representation mediaType="application/json" element="syncope1:policy"/></response></method><method name="PUT" id="update"><request><representation mediaType="application/xml" element="syncope1:policy"/><representation mediaType="application/json" element="syncope1:policy"/></request><response status="204"></response></method></resource></resource><resource path="/reports" id="org.apache.syncope.core.services.ReportServiceImpl"><method name="GET" id="list"><response><representation mediaType="application/xml" element="syncope1:reports"/><representation mediaType="application/json" element="syncope1:reports"/></response></method><method name="GET" id="list"><request><param name="page" style="query" type="xs:int"/><param name="size" style="query" default="25" type="xs:int"/></request><response><representation mediaType="application/xml" element="syncope1:reports"/><representation mediaType="application/json" element="syncope1:reports"/></response></method><method name="POST" id="create"><request><representation mediaType="application/xml" element="syncope1:report"/><representation mediaType="application/json" element="syncope1:report"/></request><response><representation mediaType="application/xml"/><representation mediaType="application/json"/></response></method><resource path="/count"><method name="GET" id="count"><response><representation mediaType="application/xml"><param name="result" style="plain" type="xs:int"/></representation><representation mediaType="application/json"><param name="result" style="plain" type="xs:int"/></representation></response></method></resource><resource path="/executions/{executionId}"><param name="executionId" style="template" type="xs:long"/><method name="DELETE" id="deleteExecution"><request></request><response status="204"></response></method><method name="GET" id="readExecution"><request></request><response><representation mediaType="application/xml" element="syncope1:reportExec"/><representation mediaType="application/json" element="syncope1:reportExec"/></response></method></resource><resource path="/executions/{executionId}/stream"><param name="executionId" style="template" type="xs:long"/><method name="GET" id="exportExecutionResult"><request><param name="format" style="query" type="xs:string"><option value="XML"/><option value="HTML"/><option value="PDF"/><option value="RTF"/><option value="CSV"/></param></request><response><representation mediaType="application/xml"/><representation mediaType="application/json"/></response></method></resource><resource path="/reportletConfClasses"><method name="GET" id="getReportletConfClasses"><response><representation mediaType="application/xml" element="syncope1:reportletConfClasses"/><representation mediaType="application/json" element="syncope1:reportletConfClasses"/></response></method></resource><resource path="/{reportId}"><param name="reportId" style="template" type="xs:long"/><method name="DELETE" id="delete"><request></request><response status="204"></response></method><method name="GET" id="read"><request></request><response><representation mediaType="application/xml" element="syncope1:report"/><representation mediaType="application/json" element="syncope1:report"/></response></method><method name="PUT" id="update"><request><representation mediaType="application/xml" element="syncope1:report"/><representation mediaType="application/json" element="syncope1:report"/></request><response status="204"></response></method></resource><resource path="/{reportId}/execute"><param name="reportId" style="template" type="xs:long"/><method name="POST" id="execute"><request></request><response><representation mediaType="application/xml" element="syncope1:reportExec"/><representation mediaType="application/json" element="syncope1:reportExec"/></response></method></resource></resource><resource path="/resources" id="org.apache.syncope.core.services.ResourceServiceImpl"><method name="GET" id="list"><response><representation mediaType="application/xml" element="syncope1:resources"/><representation mediaType="application/json" element="syncope1:resources"/></response></method><method name="GET" id="list"><request></request><response><representation mediaType="application/xml" element="syncope1:resources"/><representation mediaType="application/json" element="syncope1:resources"/></response></method><method name="POST" id="create"><request><representation mediaType="application/xml" element="syncope1:resource"/><representation mediaType="application/json" element="syncope1:resource"/></request><response><representation mediaType="application/xml"/><representation mediaType="application/json"/></response></method><resource path="/bulk"><method name="POST" id="bulk"><request><representation mediaType="application/xml" element="syncope1:bulkAction"/><representation mediaType="application/json" element="syncope1:bulkAction"/></request><response><representation mediaType="application/xml" element="syncope1:bulkActionRes"/><representation mediaType="application/json" element="syncope1:bulkActionRes"/></response></method></resource><resource path="/check"><method name="POST" id="check"><request><representation mediaType="application/xml" element="syncope1:resource"/><representation mediaType="application/json" element="syncope1:resource"/></request><response><representation mediaType="application/xml"><param name="result" style="plain" type="xs:boolean"/></representation><representation mediaType="application/json"><param name="result" style="plain" type="xs:boolean"/></representation></response></method></resource><resource path="/propagationActionsClasses"><method name="GET" id="getPropagationActionsClasses"><response><representation mediaType="application/xml" element="syncope1:propagationActionClasss"/><representation mediaType="application/json" element="syncope1:propagationActionClasss"/></response></method></resource><resource path="/{resourceName}"><param name="resourceName" style="template" type="xs:string"/><method name="DELETE" id="delete"><request></request><response status="204"></response></method><method name="GET" id="read"><request></request><response><representation mediaType="application/xml" element="syncope1:resource"/><representation mediaType="application/json" element="syncope1:resource"/></response></method><method name="PUT" id="update"><request><representation mediaType="application/xml" element="syncope1:resource"/><representation mediaType="application/json" element="syncope1:resource"/></request><response status="204"></response></method></resource><resource path="/{resourceName}/bulkAssociation/{type}"><param name="resourceName" style="template" type="xs:string"/><param name="type" style="template" type="xs:string"><option value="USER"/><option value="ROLE"/><option value="MEMBERSHIP"/></param><method name="POST" id="bulkAssociation"><request><representation mediaType="application/xml" element="syncope1:bulkAssociationAction"/><representation mediaType="application/json" element="syncope1:bulkAssociationAction"/></request><response><representation mediaType="application/xml" element="syncope1:bulkActionRes"/><representation mediaType="application/json" element="syncope1:bulkActionRes"/></response></method></resource><resource path="/{resourceName}/{type}/{id}"><param name="resourceName" style="template" type="xs:string"/><param name="type" style="template" type="xs:string"><option value="USER"/><option value="ROLE"/><option value="MEMBERSHIP"/></param><param name="id" style="template" type="xs:long"/><method name="GET" id="getConnectorObject"><request></request><response><representation mediaType="application/xml" element="syncope1:connObject"/><representation mediaType="application/json" element="syncope1:connObject"/></response></method></resource></resource><resource path="/roles" id="org.apache.syncope.core.services.RoleServiceImpl"><method name="GET" id="list"><response><representation mediaType="application/xml" element="syncope1:roles"/><representation mediaType="application/json" element="syncope1:roles"/></response></method><method name="GET" id="list"><request><param name="page" style="query" type="xs:int"/><param name="size" style="query" default="25" type="xs:int"/></request><response><representation mediaType="application/xml" element="syncope1:roles"/><representation mediaType="application/json" element="syncope1:roles"/></response></method><method name="POST" id="create"><request><representation mediaType="application/xml" element="syncope1:role"/><representation mediaType="application/json" element="syncope1:role"/></request><response><representation mediaType="application/xml"/><representation mediaType="application/json"/></response></method><resource path="/count"><method name="GET" id="count"><response><representation mediaType="application/xml"><param name="result" style="plain" type="xs:int"/></representation><representation mediaType="application/json"><param name="result" style="plain" type="xs:int"/></representation></response></method></resource><resource path="/search"><method name="POST" id="search"><request><representation mediaType="application/xml" element="syncope1:nodeCondition"/><representation mediaType="application/json" element="syncope1:nodeCondition"/></request><response><representation mediaType="application/xml" element="syncope1:roles"/><representation mediaType="application/json" element="syncope1:roles"/></response></method><method name="POST" id="search"><request><representation mediaType="application/xml" element="syncope1:nodeCondition"/><representation mediaType="application/json" element="syncope1:nodeCondition"/><param name="page" style="query" type="xs:int"/><param name="size" style="query" default="25" type="xs:int"/></request><response><representation mediaType="application/xml" element="syncope1:roles"/><representation mediaType="application/json" element="syncope1:roles"/></response></method></resource><resource path="/search/count"><method name="POST" id="searchCount"><request><representation mediaType="application/xml" element="syncope1:nodeCondition"/><representation mediaType="application/json" element="syncope1:nodeCondition"/></request><response><representation mediaType="application/xml"><param name="result" style="plain" type="xs:int"/></representation><representation mediaType="application/json"><param name="result" style="plain" type="xs:int"/></representation></response></method></resource><resource path="/{roleId}"><param name="roleId" style="template" type="xs:long"/><method name="DELETE" id="delete"><request></request><response><representation mediaType="application/xml"/><representation mediaType="application/json"/></response></method><method name="GET" id="read"><request></request><response><representation mediaType="application/xml" element="syncope1:role"/><representation mediaType="application/json" element="syncope1:role"/></response></method><method name="POST" id="update"><request><representation mediaType="application/xml" element="syncope1:roleMod"/><representation mediaType="application/json" element="syncope1:roleMod"/></request><response><representation mediaType="application/xml"/><representation mediaType="application/json"/></response></method></resource><resource path="/{roleId}/associate/{type}"><param name="roleId" style="template" type="xs:long"/><param name="type" style="template" type="xs:string"><option value="UNLINK"/><option value="DEPROVISION"/><option value="UNASSIGN"/></param><method name="POST" id="associate"><request><representation mediaType="application/xml" element="syncope1:resourceNames"/><representation mediaType="application/json" element="syncope1:resourceNames"/></request><response><representation mediaType="application/xml"/><representation mediaType="application/json"/></response></method></resource><resource path="/{roleId}/children"><param name="roleId" style="template" type="xs:long"/><method name="GET" id="children"><request></request><response><representation mediaType="application/xml" element="syncope1:roles"/><representation mediaType="application/json" element="syncope1:roles"/></response></method></resource><resource path="/{roleId}/own"><param name="roleId" style="template" type="xs:long"/><method name="GET" id="readSelf"><request></request><response><representation mediaType="application/xml" element="syncope1:role"/><representation mediaType="application/json" element="syncope1:role"/></response></method></resource><resource path="/{roleId}/parent"><param name="roleId" style="template" type="xs:long"/><method name="GET" id="parent"><request></request><response><representation mediaType="application/xml" element="syncope1:role"/><representation mediaType="application/json" element="syncope1:role"/></response></method></resource></resource><resource path="/schemas/{kind}/{type}" id="org.apache.syncope.core.services.SchemaServiceImpl"><param name="kind" style="template" type="xs:string"><option value="USER"/><option value="ROLE"/><option value="MEMBERSHIP"/></param><param name="type" style="template" type="xs:string"><option value="NORMAL"/><option value="DERIVED"/><option value="VIRTUAL"/></param><method name="GET" id="list"><request></request><response><representation mediaType="application/xml" element="syncope1:abstractSchemas"/><representation mediaType="application/json" element="syncope1:abstractSchemas"/></response></method><method name="POST" id="create"><request><representation mediaType="application/xml" element="syncope1:abstractSchema"/><representation mediaType="application/json" element="syncope1:abstractSchema"/></request><response><representation mediaType="application/xml"/><representation mediaType="application/json"/></response></method><resource path="/{name}"><param name="kind" style="template" type="xs:string"><option value="USER"/><option value="ROLE"/><option value="MEMBERSHIP"/></param><param name="type" style="template" type="xs:string"><option value="NORMAL"/><option value="DERIVED"/><option value="VIRTUAL"/></param><param name="name" style="template" type="xs:string"/><method name="DELETE" id="delete"><request></request><response status="204"></response></method><method name="GET" id="read"><request></request><response><representation mediaType="application/xml" element="syncope1:abstractSchema"/><representation mediaType="application/json" element="syncope1:abstractSchema"/></response></method><method name="PUT" id="update"><request><representation mediaType="application/xml" element="syncope1:abstractSchema"/><representation mediaType="application/json" element="syncope1:abstractSchema"/></request><response status="204"></response></method></resource></resource><resource path="/tasks" id="org.apache.syncope.core.services.TaskServiceImpl"><param name="type" style="matrix" type="xs:string"><option value="propagation"/><option value="notification"/><option value="sched"/><option value="sync"/></param><method name="GET" id="list"><request></request><response><representation mediaType="application/xml" element="syncope1:tasks"/><representation mediaType="application/json" element="syncope1:tasks"/></response></method><method name="GET" id="list"><request><param name="page" style="query" type="xs:int"/><param name="size" style="query" default="25" type="xs:int"/></request><response><representation mediaType="application/xml" element="syncope1:tasks"/><representation mediaType="application/json" element="syncope1:tasks"/></response></method><method name="POST" id="create"><request><representation mediaType="application/xml" element="syncope1:schedTask"/><representation mediaType="application/json" element="syncope1:schedTask"/></request><response><representation mediaType="application/xml"/><representation mediaType="application/json"/></response></method><resource path="/bulk"><method name="POST" id="bulk"><request><representation mediaType="application/xml" element="syncope1:bulkAction"/><representation mediaType="application/json" element="syncope1:bulkAction"/></request><response><representation mediaType="application/xml" element="syncope1:bulkActionRes"/><representation mediaType="application/json" element="syncope1:bulkActionRes"/></response></method></resource><resource path="/count"><param name="type" style="matrix" type="xs:string"><option value="propagation"/><option value="notification"/><option value="sched"/><option value="sync"/></param><method name="GET" id="count"><request></request><response><representation mediaType="application/xml"><param name="result" style="plain" type="xs:int"/></representation><representation mediaType="application/json"><param name="result" style="plain" type="xs:int"/></representation></response></method></resource><resource path="/executions/{executionId}"><param name="executionId" style="template" type="xs:long"/><method name="DELETE" id="deleteExecution"><request></request><response status="204"></response></method><method name="GET" id="readExecution"><request></request><response><representation mediaType="application/xml" element="syncope1:taskExec"/><representation mediaType="application/json" element="syncope1:taskExec"/></response></method></resource><resource path="/executions/{executionId}/report"><param name="executionId" style="template" type="xs:long"/><method name="POST" id="report"><request><representation mediaType="application/xml" element="syncope1:reportExec"/><representation mediaType="application/json" element="syncope1:reportExec"/></request><response status="204"></response></method></resource><resource path="/jobClasses"><method name="GET" id="getJobClasses"><response><representation mediaType="application/xml" element="syncope1:jobClasss"/><representation mediaType="application/json" element="syncope1:jobClasss"/></response></method></resource><resource path="/syncActionsClasses"><method name="GET" id="getSyncActionsClasses"><response><representation mediaType="application/xml" element="syncope1:syncActionClasss"/><representation mediaType="application/json" element="syncope1:syncActionClasss"/></response></method></resource><resource path="/{taskId}"><param name="taskId" style="template" type="xs:long"/><method name="DELETE" id="delete"><request></request><response status="204"></response></method><method name="GET" id="read"><request></request><response><representation mediaType="application/xml" element="syncope1:task"/><representation mediaType="application/json" element="syncope1:task"/></response></method><method name="PUT" id="update"><request><representation mediaType="application/xml" element="syncope1:task"/><representation mediaType="application/json" element="syncope1:task"/></request><response status="204"></response></method></resource><resource path="/{taskId}/execute"><param name="taskId" style="template" type="xs:long"/><method name="POST" id="execute"><request><param name="dryRun" style="query" default="false" type="xs:boolean"/></request><response><representation mediaType="application/xml" element="syncope1:taskExec"/><representation mediaType="application/json" element="syncope1:taskExec"/></response></method></resource></resource><resource path="/users" id="org.apache.syncope.core.services.UserServiceImpl"><method name="GET" id="list"><doc>Returns a list of all existing users</doc><response><representation mediaType="application/xml" element="syncope1:users"><doc>A list of all existing users</doc></representation><representation mediaType="application/json" element="syncope1:users"><doc>A list of all existing users</doc></representation></response></method><method name="GET" id="list"><doc>Returns a paged list of all existing users</doc><request><param name="page" style="query" type="xs:int"><doc>result page number</doc></param><param name="size" style="query" default="25" type="xs:int"><doc>number of entries per page</doc></param></request><response><representation mediaType="application/xml" element="syncope1:users"><doc>A list of all existing users matching page/size conditions</doc></representation><representation mediaType="application/json" element="syncope1:users"><doc>A list of all existing users matching page/size conditions</doc></representation></response></method><method name="POST" id="create"><doc>Creates a new user</doc><request><representation mediaType="application/xml" element="syncope1:user"><doc>user to be created</doc></representation><representation mediaType="application/json" element="syncope1:user"><doc>user to be created</doc></representation></request><response><doc>User created available at URL specified via the &lt;tt&gt;Location&lt;/tt&gt; header</doc><representation mediaType="application/xml"><doc>Response object featuring &lt;tt&gt;Location&lt;/tt&gt; header of created user</doc></representation><representation mediaType="application/json"><doc>Response object featuring &lt;tt&gt;Location&lt;/tt&gt; header of created user</doc></representation></response></method><resource path="/bulk"><method name="POST" id="bulk"><doc>Executes the provided bulk action</doc><request><representation mediaType="application/xml" element="syncope1:bulkAction"><doc>list of &amp;lt;username, action&amp;gt; pairs</doc></representation><representation mediaType="application/json" element="syncope1:bulkAction"><doc>list of &amp;lt;username, action&amp;gt; pairs</doc></representation></request><response><representation mediaType="application/xml" element="syncope1:bulkActionRes"><doc>Bulk action result</doc></representation><representation mediaType="application/json" element="syncope1:bulkActionRes"><doc>Bulk action result</doc></representation></response></method></resource><resource path="/count"><method name="GET" id="count"><doc>Returns the number of existing users</doc><response><representation mediaType="application/xml"><param name="result" style="plain" type="xs:int"></param></representation><representation mediaType="application/json"><param name="result" style="plain" type="xs:int"></param></representation></response></method></resource><resource path="/search"><method name="POST" id="search"><doc>Returns the list of users matching the given search condition</doc><request><representation mediaType="application/xml" element="syncope1:nodeCondition"><doc>search condition</doc></representation><representation mediaType="application/json" element="syncope1:nodeCondition"><doc>search condition</doc></representation></request><response><representation mediaType="application/xml" element="syncope1:users"><doc>List of users matching the given condition</doc></representation><representation mediaType="application/json" element="syncope1:users"><doc>List of users matching the given condition</doc></representation></response></method><method name="POST" id="search"><doc>Returns the paged list of users matching the given search condition</doc><request><representation mediaType="application/xml" element="syncope1:nodeCondition"><doc>search condition</doc></representation><representation mediaType="application/json" element="syncope1:nodeCondition"><doc>search condition</doc></representation><param name="page" style="query" type="xs:int"><doc>result page number</doc></param><param name="size" style="query" default="25" type="xs:int"><doc>number of entries per page</doc></param></request><response><representation mediaType="application/xml" element="syncope1:users"><doc>List of users matching the given search and page/size conditions</doc></representation><representation mediaType="application/json" element="syncope1:users"><doc>List of users matching the given search and page/size conditions</doc></representation></response></method></resource><resource path="/search/count"><method name="POST" id="searchCount"><doc>Returns the number of users matching the provided search condition</doc><request><representation mediaType="application/xml" element="syncope1:nodeCondition"><doc>search condition</doc></representation><representation mediaType="application/json" element="syncope1:nodeCondition"><doc>search condition</doc></representation></request><response><representation mediaType="application/xml"><param name="result" style="plain" type="xs:int"></param></representation><representation mediaType="application/json"><param name="result" style="plain" type="xs:int"></param></representation></response></method></resource><resource path="/{userId}"><param name="userId" style="template" type="xs:long"><doc>id of user to be deleted</doc></param><method name="DELETE" id="delete"><doc>Deletes user matching provided userId</doc><request></request><response><representation mediaType="application/xml"><doc>&lt;tt&gt;Response&lt;/tt&gt; object featuring the deleted user enriched with propagation status information, as &lt;tt&gt;Entity&lt;/tt&gt;</doc></representation><representation mediaType="application/json"><doc>&lt;tt&gt;Response&lt;/tt&gt; object featuring the deleted user enriched with propagation status information, as &lt;tt&gt;Entity&lt;/tt&gt;</doc></representation></response></method><method name="GET" id="read"><doc>Reads the user matching the provided userId</doc><request></request><response><representation mediaType="application/xml" element="syncope1:user"><doc>User matching the provided userId</doc></representation><representation mediaType="application/json" element="syncope1:user"><doc>User matching the provided userId</doc></representation></response></method><method name="POST" id="update"><doc>Updates user matching the provided userId</doc><request><representation mediaType="application/xml" element="syncope1:userMod"><doc>modification to be applied to user matching the provided userId</doc></representation><representation mediaType="application/json" element="syncope1:userMod"><doc>modification to be applied to user matching the provided userId</doc></representation></request><response><representation mediaType="application/xml"><doc>&lt;tt&gt;Response&lt;/tt&gt; object featuring the updated user enriched with propagation status information, as &lt;tt&gt;Entity&lt;/tt&gt;</doc></representation><representation mediaType="application/json"><doc>&lt;tt&gt;Response&lt;/tt&gt; object featuring the updated user enriched with propagation status information, as &lt;tt&gt;Entity&lt;/tt&gt;</doc></representation></response></method></resource><resource path="/{userId}/associate/{type}"><param name="userId" style="template" type="xs:long"><doc>user id</doc></param><param name="type" style="template" type="xs:string"><doc>resource association action type</doc><option value="UNLINK"/><option value="DEPROVISION"/><option value="UNASSIGN"/></param><method name="POST" id="associate"><doc>Executes resource-related operations on given user</doc><request><representation mediaType="application/xml" element="syncope1:resourceNames"><doc>external resources to be used for propagation-related operations</doc></representation><representation mediaType="application/json" element="syncope1:resourceNames"><doc>external resources to be used for propagation-related operations</doc></representation></request><response><representation mediaType="application/xml"><doc>&lt;tt&gt;Response&lt;/tt&gt; object featuring the updated user enriched with propagation status information, as &lt;tt&gt;Entity&lt;/tt&gt;</doc></representation><representation mediaType="application/json"><doc>&lt;tt&gt;Response&lt;/tt&gt; object featuring the updated user enriched with propagation status information, as &lt;tt&gt;Entity&lt;/tt&gt;</doc></representation></response></method></resource><resource path="/{userId}/status"><param name="userId" style="template" type="xs:long"><doc>id of user to be subjected to status update</doc></param><method name="POST" id="status"><doc>Performs a status update on user matching provided userId</doc><request><representation mediaType="application/xml" element="syncope1:statusMod"><doc>status update details</doc></representation><representation mediaType="application/json" element="syncope1:statusMod"><doc>status update details</doc></representation></request><response><representation mediaType="application/xml"><doc>&lt;tt&gt;Response&lt;/tt&gt; object featuring the updated user enriched with propagation status information, as &lt;tt&gt;Entity&lt;/tt&gt;</doc></representation><representation mediaType="application/json"><doc>&lt;tt&gt;Response&lt;/tt&gt; object featuring the updated user enriched with propagation status information, as &lt;tt&gt;Entity&lt;/tt&gt;</doc></representation></response></method></resource><resource path="/{userId}/username"><param name="userId" style="template" type="xs:long"/><method name="OPTIONS" id="getUsername"><request></request><response><representation mediaType="application/xml"/><representation mediaType="application/json"/></response></method></resource><resource path="/{username}/userId"><param name="username" style="template" type="xs:string"/><method name="OPTIONS" id="getUserId"><request></request><response><representation mediaType="application/xml"/><representation mediaType="application/json"/></response></method></resource></resource><resource path="/users/self" id="org.apache.syncope.core.services.UserSelfServiceImpl"><method name="DELETE" id="delete"><response><representation mediaType="application/xml"/><representation mediaType="application/json"/></response></method><method name="GET" id="read"><response><representation mediaType="application/xml" element="syncope1:user"/><representation mediaType="application/json" element="syncope1:user"/></response></method><method name="OPTIONS" id="getOptions"><response><representation mediaType="application/xml"/><representation mediaType="application/json"/></response></method><method name="POST" id="create"><request><representation mediaType="application/xml" element="syncope1:user"/><representation mediaType="application/json" element="syncope1:user"/></request><response><representation mediaType="application/xml"/><representation mediaType="application/json"/></response></method><resource path="/{userId}"><param name="userId" style="template" type="xs:long"/><method name="POST" id="update"><request><representation mediaType="application/xml" element="syncope1:userMod"/><representation mediaType="application/json" element="syncope1:userMod"/></request><response><representation mediaType="application/xml"/><representation mediaType="application/json"/></response></method></resource></resource><resource path="/workflows/{kind}" id="org.apache.syncope.core.services.WorkflowServiceImpl"><param name="kind" style="template" type="xs:string"><option value="USER"/><option value="ROLE"/><option value="MEMBERSHIP"/></param><method name="GET" id="getDefinition"><request></request><response><representation mediaType="application/xml" element="syncope1:workflowDefinition"/><representation mediaType="application/json" element="syncope1:workflowDefinition"/></response></method><method name="PUT" id="updateDefinition"><request><representation mediaType="application/xml" element="syncope1:workflowDefinition"/><representation mediaType="application/json" element="syncope1:workflowDefinition"/></request><response status="204"></response></method><resource path="/tasks"><param name="kind" style="template" type="xs:string"><option value="USER"/><option value="ROLE"/><option value="MEMBERSHIP"/></param><method name="GET" id="getDefinedTasks"><request></request><response><representation mediaType="application/xml" element="syncope1:workflowTasks"/><representation mediaType="application/json" element="syncope1:workflowTasks"/></response></method></resource></resource><resource path="/userworkflow" id="org.apache.syncope.core.services.UserWorkflowServiceImpl"><resource path="/forms"><method name="GET" id="getForms"><response><representation mediaType="application/xml" element="syncope1:workflowForms"/><representation mediaType="application/json" element="syncope1:workflowForms"/></response></method><method name="POST" id="submitForm"><request><representation mediaType="application/xml" element="syncope1:workflowForm"/><representation mediaType="application/json" element="syncope1:workflowForm"/></request><response><representation mediaType="application/xml" element="syncope1:user"/><representation mediaType="application/json" element="syncope1:user"/></response></method></resource><resource path="/forms/{userId}"><param name="userId" style="template" type="xs:long"/><method name="GET" id="getFormForUser"><request></request><response><representation mediaType="application/xml" element="syncope1:workflowForm"/><representation mediaType="application/json" element="syncope1:workflowForm"/></response></method></resource><resource path="/forms/{userId}/{name}"><param name="userId" style="template" type="xs:long"/><param name="name" style="template" type="xs:string"/><method name="GET" id="getFormsByName"><request></request><response><representation mediaType="application/xml" element="syncope1:workflowForms"/><representation mediaType="application/json" element="syncope1:workflowForms"/></response></method></resource><resource path="/tasks/{taskId}/claim"><param name="taskId" style="template" type="xs:string"/><method name="POST" id="claimForm"><request></request><response><representation mediaType="application/xml" element="syncope1:workflowForm"/><representation mediaType="application/json" element="syncope1:workflowForm"/></response></method></resource><resource path="/tasks/{taskId}/execute"><param name="taskId" style="template" type="xs:string"/><method name="POST" id="executeTask"><request><representation mediaType="application/xml" element="syncope1:user"/><representation mediaType="application/json" element="syncope1:user"/></request><response><representation mediaType="application/xml" element="syncope1:user"/><representation mediaType="application/json" element="syncope1:user"/></response></method></resource></resource></resources></application>
+</grammars><resources base="http://localhost:9080/syncope/rest/"><resource path="/connectors" id="org.apache.syncope.core.services.ConnectorServiceImpl"><doc>REST operations for connector bundles and instances.</doc><method name="GET" id="list"><doc>Returns a list of all connector instances with property keys in the matching language.</doc><request><param name="lang" style="query" type="xs:string"><doc>language to select property keys, null for default (English).
+ An ISO 639 alpha-2 or alpha-3 language code, or a language subtag up to 8 characters in length.</doc></param></request><response><representation mediaType="application/xml" element="syncope1:connInstances"><doc>list of all connector instances with property keys in the matching language</doc></representation><representation mediaType="application/json" element="syncope1:connInstances"><doc>list of all connector instances with property keys in the matching language</doc></representation></response></method><method name="POST" id="create"><doc>Creates a new connector instance.</doc><request><representation mediaType="application/xml" element="syncope1:connInstance"></representation><representation mediaType="application/json" element="syncope1:connInstance"></representation></request><response><doc>Featuring &lt;tt&gt;Location&lt;/tt&gt; header of created connector instance</doc><representation mediaType="application/octet-stream"></representation></response></method><resource path="/bulk"><method name="POST" id="bulk"><doc>Executes the provided bulk action.</doc><request><representation mediaType="application/xml" element="syncope1:bulkAction"><doc>list of connector instance ids against which the bulk action will be performed.</doc></representation><representation mediaType="application/json" element="syncope1:bulkAction"><doc>list of connector instance ids against which the bulk action will be performed.</doc></representation></request><response><representation mediaType="application/xml" element="syncope1:bulkActionResult"><doc>Bulk action result</doc></representation><representation mediaType="application/json" element="syncope1:bulkActionResult"><doc>Bulk action result</doc></representation></response></method></resource><resource path="/bundles"><method name="GET" id="getBundles"><doc>Returns available connector bundles with property keys in selected language.</doc><request><param name="lang" style="query" type="xs:string"><doc>language to select property keys; default language is English</doc></param></request><response><representation mediaType="application/xml" element="syncope1:connectorBundles"><doc>available connector bundles with property keys in selected language</doc></representation><representation mediaType="application/json" element="syncope1:connectorBundles"><doc>available connector bundles with property keys in selected language</doc></representation></response></method></resource><resource path="/byResource/{resourceName}"><param name="resourceName" style="template" type="xs:string"><doc>resource name to be used for connector lookup</doc></param><method name="GET" id="readByResource"><doc>Returns connector instance for matching resource.</doc><request></request><response><representation mediaType="application/xml" element="syncope1:connInstance"><doc>connector instance for matching resource</doc></representation><representation mediaType="application/json" element="syncope1:connInstance"><doc>connector instance for matching resource</doc></representation></response></method></resource><resource path="/check"><method name="POST" id="check"><request><representation mediaType="application/xml" element="syncope1:connInstance"></representation><representation mediaType="application/json" element="syncope1:connInstance"></representation></request><response><representation mediaType="application/xml"><param name="result" style="plain" type="xs:boolean"></param></representation><representation mediaType="application/json"><param name="result" style="plain" type="xs:boolean"></param></representation></response></method></resource><resource path="/reload"><method name="POST" id="reload"><doc>Reload all connector bundles and instances.</doc><response status="204"></response></method></resource><resource path="/{connInstanceId}"><param name="connInstanceId" style="template" type="xs:long"><doc>connector instance id to be deleted</doc></param><method name="DELETE" id="delete"><doc>Deletes the connector instance matching the provided id.</doc><request></request><response status="204"></response></method><method name="GET" id="read"><doc>Returns connector instance with matching id.</doc><request></request><response><representation mediaType="application/xml" element="syncope1:connInstance"><doc>connector instance with matching id</doc></representation><representation mediaType="application/json" element="syncope1:connInstance"><doc>connector instance with matching id</doc></representation></response></method><method name="PUT" id="update"><doc>Updates the connector instance matching the provided id.</doc><request><representation mediaType="application/xml" element="syncope1:connInstance"><doc>connector instance to be stored</doc></representation><representation mediaType="application/json" element="syncope1:connInstance"><doc>connector instance to be stored</doc></representation></request><response status="204"></response></method></resource><resource path="/{connInstanceId}/configuration"><param name="connInstanceId" style="template" type="xs:long"><doc>connector instance id to read configuration from</doc></param><method name="GET" id="getConfigurationProperties"><doc>Returns configuration for given connector instance.</doc><request></request><response><representation mediaType="application/xml" element="syncope1:connConfPropertys"><doc>configuration for given connector instance</doc></representation><representation mediaType="application/json" element="syncope1:connConfPropertys"><doc>configuration for given connector instance</doc></representation></response></method></resource><resource path="/{connInstanceId}/schemaNames"><param name="connInstanceId" style="template" type="xs:long"><doc>connector instance id to be used for schema lookup</doc></param><method name="POST" id="getSchemaNames"><doc>Returns schema names for connector bundle matching the given connector instance id.</doc><request><representation mediaType="application/xml" element="syncope1:connInstance"><doc>connector instance object to provide special configuration properties</doc></representation><representation mediaType="application/json" element="syncope1:connInstance"><doc>connector instance object to provide special configuration properties</doc></representation><param name="includeSpecial" style="query" default="false" type="xs:boolean"><doc>if set to true, special schema names (like &apos;__PASSWORD__&apos;) will be included;
+ default is false</doc></param></request><response><representation mediaType="application/xml" element="syncope1:schemas"><doc>schema names for connector bundle matching the given connector instance id</doc></representation><representation mediaType="application/json" element="syncope1:schemas"><doc>schema names for connector bundle matching the given connector instance id</doc></representation></response></method></resource><resource path="/{connInstanceId}/supportedObjectClasses"><param name="connInstanceId" style="template" type="xs:long"><doc>connector instance id to be used for schema lookup</doc></param><method name="POST" id="getSupportedObjectClasses"><doc>Returns supported object classes for connector bundle matching the given connector instance id.</doc><request><representation mediaType="application/xml" element="syncope1:connInstance"><doc>connector instance object to provide special configuration properties</doc></representation><representation mediaType="application/json" element="syncope1:connInstance"><doc>connector instance object to provide special configuration properties</doc></representation></request><response><representation mediaType="application/xml" element="syncope1:connIdObjectClasss"><doc>supported object classes for connector bundle matching the given connector instance id</doc></representation><representation mediaType="application/json" element="syncope1:connIdObjectClasss"><doc>supported object classes for connector bundle matching the given connector instance id</doc></representation></response></method></resource></resource><resource path="/configurations" id="org.apache.syncope.core.services.ConfigurationServiceImpl"><doc>REST operations for configuration.</doc><method name="GET" id="list"><doc>Returns list of all configuration parameters.</doc><response><representation mediaType="application/xml" element="syncope1:configurations"><doc>list of all configuration parameters</doc></representation><representation mediaType="application/json" element="syncope1:configurations"><doc>list of all configuration parameters</doc></representation></response></method><method name="POST" id="create"><doc>Creates a new configuration parameter.</doc><request><representation mediaType="application/xml" element="syncope1:configuration"></representation><representation mediaType="application/json" element="syncope1:configuration"></representation></request><response><doc>Featuring &lt;tt&gt;Location&lt;/tt&gt; header of created configuration</doc><representation mediaType="application/xml"></representation><representation mediaType="application/json"></representation></response></method><resource path="/mailTemplates"><method name="GET" id="getMailTemplates"><doc>Returns a list of known mail-template names.</doc><response><representation mediaType="application/xml" element="syncope1:mailTemplates"><doc>a list of known mail-template names</doc></representation><representation mediaType="application/json" element="syncope1:mailTemplates"><doc>a list of known mail-template names</doc></representation></response></method></resource><resource path="/stream"><method name="GET" id="export"><doc>Exports internal storage content as downloadable XML file.</doc><response><representation mediaType="application/octet-stream"><doc>internal storage content as downloadable XML file</doc></representation></response></method></resource><resource path="/validators"><method name="GET" id="getValidators"><doc>Returns a list of known validator names.</doc><response><representation mediaType="application/xml" element="syncope1:validators"><doc>a list of known validator names</doc></representation><representation mediaType="application/json" element="syncope1:validators"><doc>a list of known validator names</doc></representation></response></method></resource><resource path="/{key}"><param name="key" style="template" type="xs:string"><doc>configuration parameter key</doc></param><method name="DELETE" id="delete"><doc>Deletes configuration with matching key.</doc><request></request><response status="204"></response></method><method name="GET" id="read"><doc>Returns configuration parameter with matching key.</doc><request></request><response><representation mediaType="application/xml" element="syncope1:configuration"><doc>configuration parameter with matching key</doc></representation><representation mediaType="application/json" element="syncope1:configuration"><doc>configuration parameter with matching key</doc></representation></response></method><method name="PUT" id="update"><doc>Updates configuration parameter for the given key.</doc><request><representation mediaType="application/xml" element="syncope1:configuration"><doc>new configuration</doc></representation><representation mediaType="application/json" element="syncope1:configuration"><doc>new configuration</doc></representation></request><response status="204"></response></method></resource></resource><resource path="/entitlements" id="org.apache.syncope.core.services.EntitlementServiceImpl"><doc>REST operations for entitlements.</doc><method name="GET" id="getAllEntitlements"><doc>Returns a list of all known entitlements.</doc><response><representation mediaType="application/xml" element="syncope1:entitlements"><doc>list of all known entitlements</doc></representation><representation mediaType="application/json" element="syncope1:entitlements"><doc>list of all known entitlements</doc></representation></response></method><resource path="/own"><method name="GET" id="getOwnEntitlements"><doc>Returns a list of entitlements assigned to user making the current request.</doc><response><representation mediaType="application/xml" element="syncope1:entitlements"><doc>list of entitlements assigned to user making the current request</doc></representation><representation mediaType="application/json" element="syncope1:entitlements"><doc>list of entitlements assigned to user making the current request</doc></representation></response></method></resource></resource><resource path="/logger" id="org.apache.syncope.core.services.LoggerServiceImpl"><doc>REST operations for logging and auditing.</doc><resource path="/events"><method name="GET" id="events"><doc>Returns a list of all managed events in audit.</doc><response><representation mediaType="application/xml" element="syncope1:eventCategorys"><doc>list of all managed events in audit</doc></representation><representation mediaType="application/json" element="syncope1:eventCategorys"><doc>list of all managed events in audit</doc></representation></response></method></resource><resource path="/{type}"><param name="type" style="template" type="xs:string"><option value="LOG"/><option value="AUDIT"/></param><method name="GET" id="list"><doc>Returns a list of loggers with matching type.</doc><request></request><response><representation mediaType="application/xml" element="syncope1:loggers"><doc>list of loggers with matching type</doc></representation><representation mediaType="application/json" element="syncope1:loggers"><doc>list of loggers with matching type</doc></representation></response></method></resource><resource path="/{type}/{name}"><param name="type" style="template" type="xs:string"><option value="LOG"/><option value="AUDIT"/></param><param name="name" style="template" type="xs:string"><doc>Logger name to be deleted</doc></param><method name="DELETE" id="delete"><doc>Deletes the logger with matching name.</doc><request></request><response status="204"></response></method><method name="GET" id="read"><doc>Returns logger with matching type and name.</doc><request></request><response><representation mediaType="application/xml" element="syncope1:logger"><doc>logger with matching type and name</doc></representation><representation mediaType="application/json" element="syncope1:logger"><doc>logger with matching type and name</doc></representation></response></method></resource><resource path="/{type}/{name}/level"><param name="type" style="template" type="xs:string"><option value="LOG"/><option value="AUDIT"/></param><param name="name" style="template" type="xs:string"><doc>Logger name to be updated</doc></param><method name="PUT" id="update"><doc>Creates or updates (if existing) the logger with matching name.</doc><request><representation mediaType="application/xml" element="syncope1:logger"><doc>Logger to be created or updated</doc></representation><representation mediaType="application/json" element="syncope1:logger"><doc>Logger to be created or updated</doc></representation></request><response status="204"></response></method></resource></resource><resource path="/notifications" id="org.apache.syncope.core.services.NotificationServiceImpl"><doc>REST operations for notifications.</doc><method name="GET" id="list"><doc>Returns a list of all notifications.</doc><response><representation mediaType="application/xml" element="syncope1:notifications"><doc>list of all notifications.</doc></representation><representation mediaType="application/json" element="syncope1:notifications"><doc>list of all notifications.</doc></representation></response></method><method name="POST" id="create"><doc>Creates a new notification.</doc><request><representation mediaType="application/xml" element="syncope1:notification"></representation><representation mediaType="application/json" element="syncope1:notification"></representation></request><response><doc>Featuring &lt;tt&gt;Location&lt;/tt&gt; header of created notification</doc><representation mediaType="application/octet-stream"></representation></response></method><resource path="/{notificationId}"><param name="notificationId" style="template" type="xs:long"><doc>id for notification to be deleted</doc></param><method name="DELETE" id="delete"><doc>Deletes the notification matching the given id.</doc><request></request><response status="204"></response></method><method name="GET" id="read"><doc>Returns notification with matching id.</doc><request></request><response><representation mediaType="application/xml" element="syncope1:notification"><doc>notification with matching id</doc></representation><representation mediaType="application/json" element="syncope1:notification"><doc>notification with matching id</doc></representation></response></method><method name="PUT" id="update"><doc>Updates the notification matching the given id.</doc><request><representation mediaType="application/xml" element="syncope1:notification"><doc>notification to be stored</doc></representation><representation mediaType="application/json" element="syncope1:notification"><doc>notification to be stored</doc></representation></request><response status="204"></response></method></resource></resource><resource path="/policies" id="org.apache.syncope.core.services.PolicyServiceImpl"><doc>REST operations for policies.</doc><param name="type" style="matrix" type="xs:string"><option value="ACCOUNT"/><option value="GLOBAL_ACCOUNT"/><option value="PASSWORD"/><option value="GLOBAL_PASSWORD"/><option value="SYNC"/><option value="GLOBAL_SYNC"/></param><method name="GET" id="list"><doc>Returns a list of policies of the matching type.</doc><request></request><response><representation mediaType="application/xml" element="syncope1:abstractPolicys"><doc>list of policies with matching type</doc></representation><representation mediaType="application/json" element="syncope1:abstractPolicys"><doc>list of policies with matching type</doc></representation></response></method><method name="POST" id="create"><request><representation mediaType="application/xml" element="syncope1:abstractPolicy"></representation><representation mediaType="application/json" element="syncope1:abstractPolicy"></representation></request><response><doc>Featuring &lt;tt&gt;Location&lt;/tt&gt; header of created policy</doc><representation mediaType="application/octet-stream"></representation></response></method><resource path="/global"><param name="type" style="matrix" type="xs:string"><option value="ACCOUNT"/><option value="GLOBAL_ACCOUNT"/><option value="PASSWORD"/><option value="GLOBAL_PASSWORD"/><option value="SYNC"/><option value="GLOBAL_SYNC"/></param><method name="GET" id="readGlobal"><doc>Returns the global policy for the given type.</doc><request></request><response><representation mediaType="application/xml" element="syncope1:abstractPolicy"><doc>global policy for matching type</doc></representation><representation mediaType="application/json" element="syncope1:abstractPolicy"><doc>global policy for matching type</doc></representation></response></method></resource><resource path="/syncCorrelationRuleClasses"><method name="GET" id="getSyncCorrelationRuleClasses"><doc>Returns a list of classes to be used as correlation rules.</doc><response><representation mediaType="application/xml" element="syncope1:correlationRuleClasss"><doc>list of classes to be used as correlation rules</doc></representation><representation mediaType="application/json" element="syncope1:correlationRuleClasss"><doc>list of classes to be used as correlation rules</doc></representation></response></method></resource><resource path="/{policyId}"><param name="policyId" style="template" type="xs:long"><doc>response type (extending PolicyTO)</doc></param><method name="DELETE" id="delete"><doc>Delete policy matching the given id.</doc><request></request><response status="204"></response></method><method name="GET" id="read"><doc>Returns the policy matching the given id.</doc><request></request><response><representation mediaType="application/xml" element="syncope1:abstractPolicy"><doc>policy with matching id</doc></representation><representation mediaType="application/json" element="syncope1:abstractPolicy"><doc>policy with matching id</doc></representation></response></method><method name="PUT" id="update"><request><representation mediaType="application/xml" element="syncope1:abstractPolicy"></representation><representation mediaType="application/json" element="syncope1:abstractPolicy"></representation></request><response status="204"></response></method></resource></resource><resource path="/reports" id="org.apache.syncope.core.services.ReportServiceImpl"><doc>REST operations for reports.</doc><method name="GET" id="list"><doc>Returns a paged list of all existing reports.</doc><response><representation mediaType="application/xml" element="syncope1:pagedResult"><doc>paged list of all existing reports</doc></representation><representation mediaType="application/json" element="syncope1:pagedResult"><doc>paged list of all existing reports</doc></representation></response></method><method name="GET" id="list"><doc>Returns a paged list of all existing reports.</doc><request><param name="orderby" style="query" type="xs:string"><doc>list of ordering clauses, separated by comma</doc></param></request><response><representation mediaType="application/xml" element="syncope1:pagedResult"><doc>paged list of all existing reports</doc></representation><representation mediaType="application/json" element="syncope1:pagedResult"><doc>paged list of all existing reports</doc></representation></response></method><method name="GET" id="list"><doc>Returns a paged list of all existing reports matching page/size conditions.</doc><request><param name="page" style="query" default="1" type="xs:int"><doc>selected page in relation to size</doc></param><param name="size" style="query" default="25" type="xs:int"><doc>number of entries per page</doc></param><param name="orderby" style="query" type="xs:string"><doc>list of ordering clauses, separated by comma</doc></param></request><response><representation mediaType="application/xml" element="syncope1:pagedResult"><doc>paged list of existing reports matching page/size conditions</doc></representation><representation mediaType="application/json" element="syncope1:pagedResult"><doc>paged list of existing reports matching page/size conditions</doc></representation></response></method><method name="GET" id="list"><doc>Returns a paged list of all existing reports matching page/size conditions.</doc><request><param name="page" style="query" default="1" type="xs:int"><doc>selected page in relation to size</doc></param><param name="size" style="query" default="25" type="xs:int"><doc>number of entries per page</doc></param></request><response><representation mediaType="application/xml" element="syncope1:pagedResult"><doc>paged list of existing reports matching page/size conditions</doc></representation><representation mediaType="application/json" element="syncope1:pagedResult"><doc>paged list of existing reports matching page/size conditions</doc></representation></response></method><method name="POST" id="create"><doc>Creates a new report.</doc><request><representation mediaType="application/xml" element="syncope1:report"></representation><representation mediaType="application/json" element="syncope1:report"></representation></request><response><doc>Featuring &lt;tt&gt;Location&lt;/tt&gt; header of created report</doc><representation mediaType="application/octet-stream"></representation></response></method><resource path="/executions/{executionId}"><param name="executionId" style="template" type="xs:long"><doc>id of execution report to be deleted</doc></param><method name="DELETE" id="deleteExecution"><doc>Deletes report execution with matching id.</doc><request></request><response status="204"></response></method><method name="GET" id="readExecution"><doc>Returns report execution with matching id.</doc><request></request><response><representation mediaType="application/xml" element="syncope1:reportExec"><doc>report execution with matching id</doc></representation><representation mediaType="application/json" element="syncope1:reportExec"><doc>report execution with matching id</doc></representation></response></method></resource><resource path="/executions/{executionId}/stream"><param name="executionId" style="template" type="xs:long"><doc>id of execution report to be selected</doc></param><method name="GET" id="exportExecutionResult"><doc>Exports the report execution with matching id in the requested format.</doc><request><param name="format" style="query" type="xs:string"><option value="XML"/><option value="HTML"/><option value="PDF"/><option value="RTF"/><option value="CSV"/></param></request><response><representation mediaType="application/octet-stream"><doc>a stream for content download</doc></representation></response></method></resource><resource path="/reportletConfClasses"><method name="GET" id="getReportletConfClasses"><doc>Returns a list of available classes for reportlet configuration.</doc><response><representation mediaType="application/xml" element="syncope1:reportletConfClasss"><doc>list of available classes for reportlet configuration</doc></representation><representation mediaType="application/json" element="syncope1:reportletConfClasss"><doc>list of available classes for reportlet configuration</doc></representation></response></method></resource><resource path="/{reportId}"><param name="reportId" style="template" type="xs:long"><doc>Deletes report with matching id</doc></param><method name="DELETE" id="delete"><doc>Deletes report with matching id.</doc><request></request><response status="204"></response></method><method name="GET" id="read"><doc>Returns report with matching id.</doc><request></request><response><representation mediaType="application/xml" element="syncope1:report"><doc>report with matching id</doc></representation><representation mediaType="application/json" element="syncope1:report"><doc>report with matching id</doc></representation></response></method><method name="PUT" id="update"><doc>Updates report with matching id.</doc><request><representation mediaType="application/xml" element="syncope1:report"><doc>report to be stored</doc></representation><representation mediaType="application/json" element="syncope1:report"><doc>report to be stored</doc></representation></request><response status="204"></response></method></resource><resource path="/{reportId}/execute"><param name="reportId" style="template" type="xs:long"><doc>id of report to be executed</doc></param><method name="POST" id="execute"><doc>Executes the report with matching id.</doc><request></request><response><representation mediaType="application/xml" element="syncope1:reportExec"><doc>report execution result</doc></representation><representation mediaType="application/json" element="syncope1:reportExec"><doc>report execution result</doc></representation></response></method></resource></resource><resource path="/resources" id="org.apache.syncope.core.services.ResourceServiceImpl"><doc>REST operations for external resources.</doc><param name="connectorId" style="matrix" type="xs:long"><doc>Connector id to filter for resources</doc></param><method name="GET" id="list"><doc>Returns a list of resources using matching connector instance id.</doc><request></request><response><representation mediaType="application/xml" element="syncope1:resources"><doc>resources using matching connector instance id</doc></representation><representation mediaType="application/json" element="syncope1:resources"><doc>resources using matching connector instance id</doc></representation></response></method><method name="GET" id="list"><doc>Returns a list of all resources.</doc><response><representation mediaType="application/xml" element="syncope1:resources"><doc>list of all resources</doc></representation><representation mediaType="application/json" element="syncope1:resources"><doc>list of all resources</doc></representation></response></method><method name="POST" id="create"><doc>Creates a new resource.</doc><request><representation mediaType="application/xml" element="syncope1:resource"></representation><representation mediaType="application/json" element="syncope1:resource"></representation></request><response><doc>Featuring &lt;tt&gt;Location&lt;/tt&gt; header of created resource</doc><representation mediaType="application/octet-stream"></representation></response></method><resource path="/bulk"><method name="POST" id="bulk"><doc>Executes the provided bulk action.</doc><request><representation mediaType="application/xml" element="syncope1:bulkAction"><doc>list of resource names against which the bulk action will be performed</doc></representation><representation mediaType="application/json" element="syncope1:bulkAction"><doc>list of resource names against which the bulk action will be performed</doc></representation></request><response><representation mediaType="application/xml" element="syncope1:bulkActionResult"><doc>Bulk action result</doc></representation><representation mediaType="application/json" element="syncope1:bulkActionResult"><doc>Bulk action result</doc></representation></response></method></resource><resource path="/check"><method name="POST" id="check"><doc>Checks wether the connection to resource could be established.</doc><request><representation mediaType="application/xml" element="syncope1:resource"><doc>resource to be checked</doc></representation><representation mediaType="application/json" element="syncope1:resource"><doc>resource to be checked</doc></representation></request><response><representation mediaType="application/octet-stream"><param name="result" style="plain" type="xs:boolean"><doc>resource to be checked</doc></param></representation></response></method></resource><resource path="/propagationActionsClasses"><method name="GET" id="getPropagationActionsClasses"><doc>Returns a list of classes that can be used to customize the propagation process.</doc><response><representation mediaType="application/xml" element="syncope1:propagationActionClasss"><doc>list of classes that can be used to customize the propagation process</doc></representation><representation mediaType="application/json" element="syncope1:propagationActionClasss"><doc>list of classes that can be used to customize the propagation process</doc></representation></response></method></resource><resource path="/{resourceName}"><param name="resourceName" style="template" type="xs:string"><doc>name of resource to be deleted</doc></param><method name="DELETE" id="delete"><doc>Deletes the resource matching the given name.</doc><request></request><response status="204"></response></method><method name="GET" id="read"><doc>Returns the resource with matching name.</doc><request></request><response><representation mediaType="application/xml" element="syncope1:resource"><doc>resource with matching name</doc></representation><representation mediaType="application/json" element="syncope1:resource"><doc>resource with matching name</doc></representation></response></method><method name="PUT" id="update"><doc>Updates the resource matching the given name.</doc><request><representation mediaType="application/xml" element="syncope1:resource"><doc>resource to be stored</doc></representation><representation mediaType="application/json" element="syncope1:resource"><doc>resource to be stored</doc></representation></request><response status="204"></response></method></resource><resource path="/{resourceName}/bulkDeassociation/{attrType}/{type}"><param name="resourceName" style="template" type="xs:string"><doc>name of resource</doc></param><param name="attrType" style="template" type="xs:string"><option value="USER"/><option value="ROLE"/><option value="MEMBERSHIP"/></param><param name="type" style="template" type="xs:string"><option value="UNLINK"/><option value="DEPROVISION"/><option value="UNASSIGN"/></param><method name="POST" id="bulkDeassociation"><doc>De-associate users or roles (depending on the provided attributable type) from the given resource.</doc><request><representation mediaType="application/xml"></representation><representation mediaType="application/json"></representation></request><response><doc>Featuring &lt;tt&gt;BulkActionResult&lt;/tt&gt; as &lt;tt&gt;Entity&lt;/tt&gt;</doc><representation mediaType="application/xml" element="syncope1:bulkActionResult"></representation><representation mediaType="application/json" element="syncope1:bulkActionResult"></representation></response></method></resource><resource path="/{resourceName}/{type}/{id}"><param name="resourceName" style="template" type="xs:string"><doc>Name of resource to read connector object from</doc></param><param name="type" style="template" type="xs:string"><option value="USER"/><option value="ROLE"/><option value="MEMBERSHIP"/></param><param name="id" style="template" type="xs:long"><doc>user id / role id</doc></param><method name="GET" id="getConnectorObject"><doc>Returns connector object from the external resource, for the given type and id.</doc><request></request><response><representation mediaType="application/xml" element="syncope1:connObject"><doc>connector object from the external resource, for the given type and id</doc></representation><representation mediaType="application/json" element="syncope1:connObject"><doc>connector object from the external resource, for the given type and id</doc></representation></response></method></resource></resource><resource path="/roles" id="org.apache.syncope.core.services.RoleServiceImpl"><doc>REST operations for roles.</doc><method name="GET" id="list"><doc>Returns a paged list of existing roles.</doc><response><representation mediaType="application/xml" element="syncope1:pagedResult"><doc>paged list of all existing roles</doc></representation><representation mediaType="application/json" element="syncope1:pagedResult"><doc>paged list of all existing roles</doc></representation></response></method><method name="GET" id="list"><doc>Returns a paged list of existing roles matching page/size conditions.</doc><request><param name="page" style="query" default="1" type="xs:int"><doc>result page number</doc></param><param name="size" style="query" default="25" type="xs:int"><doc>number of entries per page</doc></param><param name="orderby" style="query" type="xs:string"><doc>list of ordering clauses, separated by comma</doc></param></request><response><representation mediaType="application/xml" element="syncope1:pagedResult"><doc>paged list of existing roles matching page/size conditions</doc></representation><representation mediaType="application/json" element="syncope1:pagedResult"><doc>paged list of existing roles matching page/size conditions</doc></representation></response></method><method name="GET" id="list"><doc>Returns a paged list of existing roles matching page/size conditions.</doc><request><param name="page" style="query" default="1" type="xs:int"><doc>result page number</doc></param><param name="size" style="query" default="25" type="xs:int"><doc>number of entries per page</doc></param></request><response><representation mediaType="application/xml" element="syncope1:pagedResult"><doc>paged list of existing roles matching page/size conditions</doc></representation><representation mediaType="application/json" element="syncope1:pagedResult"><doc>paged list of existing roles matching page/size conditions</doc></representation></response></method><method name="GET" id="list"><doc>Returns a paged list of existing roles.</doc><request><param name="orderby" style="query" type="xs:string"><doc>list of ordering clauses, separated by comma</doc></param></request><response><representation mediaType="application/xml" element="syncope1:pagedResult"><doc>paged list of all existing roles</doc></representation><representation mediaType="application/json" element="syncope1:pagedResult"><doc>paged list of all existing roles</doc></representation></response></method><method name="POST" id="create"><doc>Creates a new role.</doc><request><representation mediaType="application/xml" element="syncope1:role"></representation><representation mediaType="application/json" element="syncope1:role"></representation></request><response><doc>Featuring &lt;tt&gt;Location&lt;/tt&gt; header of created role as well as the role itself enriched with propagation status information - &lt;tt&gt;RoleTO&lt;/tt&gt; as &lt;tt&gt;Entity&lt;/tt&gt;</doc><representation mediaType="application/xml"></representation><representation mediaType="application/json"></representation></response></method><resource path="/search"><method name="GET" id="search"><doc>Returns a paged list of roles matching the provided FIQL search condition.</doc><request><param name="fiql" style="query" type="xs:string"><doc>FIQL search expression</doc></param><param name="page" style="query" default="1" type="xs:int"><doc>result page number</doc></param><param name="size" style="query" default="25" type="xs:int"><doc>number of entries per page</doc></param><param name="orderby" style="query" type="xs:string"><doc>list of ordering clauses, separated by comma</doc></param></request><response><representation mediaType="application/xml" element="syncope1:pagedResult"><doc>paged list of roles matching the provided FIQL search condition</doc></representation><representation mediaType="application/json" element="syncope1:pagedResult"><doc>paged list of roles matching the provided FIQL search condition</doc></representation></response></method><method name="GET" id="search"><doc>Returns a paged list of roles matching the provided FIQL search condition.</doc><request><param name="fiql" style="query" type="xs:string"><doc>FIQL search expression</doc></param><param name="page" style="query" default="1" type="xs:int"><doc>result page number</doc></param><param name="size" style="query" default="25" type="xs:int"><doc>number of entries per page</doc></param></request><response><representation mediaType="application/xml" element="syncope1:pagedResult"><doc>paged list of roles matching the provided FIQL search condition</doc></representation><representation mediaType="application/json" element="syncope1:pagedResult"><doc>paged list of roles matching the provided FIQL search condition</doc></representation></response></method><method name="GET" id="search"><doc>Returns a paged list of roles matching the provided FIQL search condition.</doc><request><param name="fiql" style="query" type="xs:string"><doc>FIQL search expression</doc></param><param name="orderby" style="query" type="xs:string"><doc>list of ordering clauses, separated by comma</doc></param></request><response><representation mediaType="application/xml" element="syncope1:pagedResult"><doc>paged list of roles matching the provided FIQL search condition</doc></representation><representation mediaType="application/json" element="syncope1:pagedResult"><doc>paged list of roles matching the provided FIQL search condition</doc></representation></response></method><method name="GET" id="search"><doc>Returns a paged list of roles matching the provided FIQL search condition.</doc><request><param name="fiql" style="query" type="xs:string"><doc>FIQL search expression</doc></param></request><response><representation mediaType="application/xml" element="syncope1:pagedResult"><doc>paged list of roles matching the provided FIQL search condition</doc></representation><representation mediaType="application/json" element="syncope1:pagedResult"><doc>paged list of roles matching the provided FIQL search condition</doc></representation></response></method></resource><resource path="/{roleId}"><param name="roleId" style="template" type="xs:long"><doc>id of role to be deleted</doc></param><method name="DELETE" id="delete"><doc>Deletes role matching provided roleId.</doc><request></request><response><doc>Featuring the deleted role enriched with propagation status information - &lt;tt&gt;RoleTO&lt;/tt&gt; as &lt;tt&gt;Entity&lt;/tt&gt;</doc><representation mediaType="application/xml"></representation><representation mediaType="application/json"></representation></response></method><method name="GET" id="read"><doc>Reads the role matching the provided roleId.</doc><request></request><response><representation mediaType="application/xml" element="syncope1:role"><doc>role with matching id</doc></representation><representation mediaType="application/json" element="syncope1:role"><doc>role with matching id</doc></representation></response></method><method name="POST" id="update"><doc>Updates role matching the provided roleId.</doc><request><representation mediaType="application/xml" element="syncope1:roleMod"></representation><representation mediaType="application/json" element="syncope1:roleMod"></representation></request><response><doc>Featuring the updated role enriched with propagation status information - &lt;tt&gt;RoleTO&lt;/tt&gt; as &lt;tt&gt;Entity&lt;/tt&gt;</doc><representation mediaType="application/xml"></representation><representation mediaType="application/json"></representation></response></method></resource><resource path="/{roleId}/associate/{type}"><param name="roleId" style="template" type="xs:long"><doc>role id.</doc></param><param name="type" style="template" type="xs:string"><option value="LINK"/><option value="PROVISION"/><option value="ASSIGN"/></param><method name="POST" id="bulkAssociation"><doc>Executes resource-related operations on given role.</doc><request><representation mediaType="application/xml" element="syncope1:resourceNames"></representation><representation mediaType="application/json" element="syncope1:resourceNames"></representation></request><response><doc>Featuring &lt;tt&gt;BulkActionResult&lt;/tt&gt; as &lt;tt&gt;Entity&lt;/tt&gt;</doc><representation mediaType="application/xml"></representation><representation mediaType="application/json"></representation></response></method></resource><resource path="/{roleId}/children"><param name="roleId" style="template" type="xs:long"><doc>id of role to get children from</doc></param><method name="GET" id="children"><doc>Returns children roles of given role.</doc><request></request><response><representation mediaType="application/xml" element="syncope1:roles"><doc>children roles of given role</doc></representation><representation mediaType="application/json" element="syncope1:roles"><doc>children roles of given role</doc></representation></response></method></resource><resource path="/{roleId}/deassociate/{type}"><param name="roleId" style="template" type="xs:long"><doc>role id.</doc></param><param name="type" style="template" type="xs:string"><option value="UNLINK"/><option value="DEPROVISION"/><option value="UNASSIGN"/></param><method name="POST" id="bulkDeassociation"><doc>Executes resource-related operations on given role.</doc><request><representation mediaType="application/xml" element="syncope1:resourceNames"></representation><representation mediaType="application/json" element="syncope1:resourceNames"></representation></request><response><doc>Featuring &lt;tt&gt;BulkActionResult&lt;/tt&gt; as &lt;tt&gt;Entity&lt;/tt&gt;</doc><representation mediaType="application/xml"></representation><representation mediaType="application/json"></representation></response></method></resource><resource path="/{roleId}/own"><param name="roleId" style="template" type="xs:long"><doc>id of role to be read</doc></param><method name="GET" id="readSelf"><doc>This method is similar to &lt;tt&gt;read()&lt;/tt&gt;, but uses different authentication handling to ensure that a user can read his own roles.</doc><request></request><response><representation mediaType="application/xml" element="syncope1:role"></representation><representation mediaType="application/json" element="syncope1:role"></representation></response></method></resource><resource path="/{roleId}/parent"><param name="roleId" style="template" type="xs:long"><doc>id of role to get parent role from</doc></param><method name="GET" id="parent"><doc>Returns parent role of the given role (or null if no parent exists).</doc><request></request><response><representation mediaType="application/xml" element="syncope1:role"><doc>parent role of the given role (or null if no parent exists)</doc></representation><representation mediaType="application/json" element="syncope1:role"><doc>parent role of the given role (or null if no parent exists)</doc></representation></response></method></resource></resource><resource path="/schemas/{kind}/{type}" id="org.apache.syncope.core.services.SchemaServiceImpl"><doc>REST operations for attribute schemas.</doc><param name="kind" style="template" type="xs:string"><option value="USER"/><option value="ROLE"/><option value="MEMBERSHIP"/></param><param name="type" style="template" type="xs:string"><option value="NORMAL"/><option value="DERIVED"/><option value="VIRTUAL"/></param><method name="GET" id="list"><doc>Returns a list of schemas with matching kind and type.</doc><request></request><response><representation mediaType="application/xml" element="syncope1:abstractSchemas"><doc>list of schemas with matching kind and type</doc></representation><representation mediaType="application/json" element="syncope1:abstractSchemas"><doc>list of schemas with matching kind and type</doc></representation></response></method><method name="POST" id="create"><request><representation mediaType="application/xml" element="syncope1:abstractSchema"></representation><representation mediaType="application/json" element="syncope1:abstractSchema"></representation></request><response><doc>Featuring &lt;tt&gt;Location&lt;/tt&gt; header of created schema</doc><representation mediaType="application/octet-stream"></representation></response></method><resource path="/{name}"><param name="kind" style="template" type="xs:string"><option value="USER"/><option value="ROLE"/><option value="MEMBERSHIP"/></param><param name="type" style="template" type="xs:string"><option value="NORMAL"/><option value="DERIVED"/><option value="VIRTUAL"/></param><param name="name" style="template" type="xs:string"><doc>name of schema to be deleted</doc></param><method name="DELETE" id="delete"><doc>Deletes the schema matching the given kind, type and name.</doc><request></request><response status="204"></response></method><method name="GET" id="read"><doc>Returns schema matching the given kind, type and name.</doc><request></request><response><representation mediaType="application/xml" element="syncope1:abstractSchema"><doc>schema matching the given kind, type and name</doc></representation><representation mediaType="application/json" element="syncope1:abstractSchema"><doc>schema matching the given kind, type and name</doc></representation></response></method><method name="PUT" id="update"><request><representation mediaType="application/xml" element="syncope1:abstractSchema"></representation><representation mediaType="application/json" element="syncope1:abstractSchema"></representation></request><response status="204"></response></method></resource></resource><resource path="/tasks" id="org.apache.syncope.core.services.TaskServiceImpl"><doc>REST operations for tasks.</doc><param name="type" style="matrix" type="xs:string"><option value="propagation"/><option value="notification"/><option value="sched"/><option value="sync"/><option value="push"/></param><method name="GET" id="list"><doc>Returns a list of tasks with matching type.</doc><request></request><response><representation mediaType="application/xml" element="syncope1:pagedResult"><doc>list of tasks with matching type</doc></representation><representation mediaType="application/json" element="syncope1:pagedResult"><doc>list of tasks with matching type</doc></representation></response></method><method name="GET" id="list"><doc>Returns a paged list of existing tasks matching type and page/size conditions.</doc><request><param name="page" style="query" default="1" type="xs:int"><doc>type of tasks to be listed</doc></param><param name="size" style="query" default="25" type="xs:int"><doc>page number of tasks in relation to page size</doc></param><param name="orderby" style="query" type="xs:string"><doc>number of tasks listed per page</doc></param></request><response><representation mediaType="application/xml" element="syncope1:pagedResult"><doc>paged list of existing tasks matching type and page/size conditions</doc></representation><representation mediaType="application/json" element="syncope1:pagedResult"><doc>paged list of existing tasks matching type and page/size conditions</doc></representation></response></method><method name="GET" id="list"><doc>Returns a paged list of existing tasks matching type and page/size conditions.</doc><request><param name="page" style="query" default="1" type="xs:int"><doc>type of tasks to be listed</doc></param><param name="size" style="query" default="25" type="xs:int"><doc>page number of tasks in relation to page size</doc></param></request><response><representation mediaType="application/xml" element="syncope1:pagedResult"><doc>paged list of existing tasks matching type and page/size conditions</doc></representation><representation mediaType="application/json" element="syncope1:pagedResult"><doc>paged list of existing tasks matching type and page/size conditions</doc></representation></response></method><method name="GET" id="list"><doc>Returns a list of tasks with matching type.</doc><request><param name="orderby" style="query" type="xs:string"><doc>type of tasks to be listed</doc></param></request><response><representation mediaType="application/xml" element="syncope1:pagedResult"><doc>list of tasks with matching type</doc></representation><representation mediaType="application/json" element="syncope1:pagedResult"><doc>list of tasks with matching type</doc></representation></response></method><method name="POST" id="create"><request><representation mediaType="application/xml" element="syncope1:schedTask"></representation><representation mediaType="application/json" element="syncope1:schedTask"></representation></request><response><doc>Featuring &lt;tt&gt;Location&lt;/tt&gt; header of created task</doc><representation mediaType="application/octet-stream"></representation></response></method><resource path="/bulk"><method name="POST" id="bulk"><doc>Executes the provided bulk action.</doc><request><representation mediaType="application/xml" element="syncope1:bulkAction"><doc>list of task ids against which the bulk action will be performed.</doc></representation><representation mediaType="application/json" element="syncope1:bulkAction"><doc>list of task ids against which the bulk action will be performed.</doc></representation></request><response><representation mediaType="application/xml" element="syncope1:bulkActionResult"><doc>Bulk action result</doc></representation><representation mediaType="application/json" element="syncope1:bulkActionResult"><doc>Bulk action result</doc></representation></response></method></resource><resource path="/executions/{executionId}"><param name="executionId" style="template" type="xs:long"><doc>id of task execution to be deleted</doc></param><method name="DELETE" id="deleteExecution"><doc>Deletes the task execution matching the provided id.</doc><request></request><response status="204"></response></method><method name="GET" id="readExecution"><doc>Returns the task execution with the given id.</doc><request></request><response><representation mediaType="application/xml" element="syncope1:taskExec"><doc>task execution with matching Id</doc></representation><representation mediaType="application/json" element="syncope1:taskExec"><doc>task execution with matching Id</doc></representation></response></method></resource><resource path="/executions/{executionId}/report"><param name="executionId" style="template" type="xs:long"><doc>id of task execution being reported</doc></param><method name="POST" id="report"><doc>Reports task execution result.</doc><request><representation mediaType="application/xml" element="syncope1:reportExec"><doc>execution being reported</doc></representation><representation mediaType="application/json" element="syncope1:reportExec"><doc>execution being reported</doc></representation></request><response status="204"></response></method></resource><resource path="/jobClasses"><method name="GET" id="getJobClasses"><doc>Returns a list of classes to be used for jobs.</doc><response><representation mediaType="application/xml" element="syncope1:jobClasss"><doc>list of classes to be used for jobs</doc></representation><representation mediaType="application/json" element="syncope1:jobClasss"><doc>list of classes to be used for jobs</doc></representation></response></method></resource><resource path="/pushActionsClasses"><method name="GET" id="getPushActionsClasses"><doc>Returns a list of classes to be used as push actions.</doc><response><representation mediaType="application/xml" element="syncope1:pushActionClasss"><doc>list of classes to be used as push actions</doc></representation><representation mediaType="application/json" element="syncope1:pushActionClasss"><doc>list of classes to be used as push actions</doc></representation></response></method></resource><resource path="/syncActionsClasses"><method name="GET" id="getSyncActionsClasses"><doc>Returns a list of classes to be used as synchronization actions.</doc><response><representation mediaType="application/xml" element="syncope1:syncActionClasss"><doc>list of classes to be used as synchronization actions</doc></representation><representation mediaType="application/json" element="syncope1:syncActionClasss"><doc>list of classes to be used as synchronization actions</doc></representation></response></method></resource><resource path="/{taskId}"><param name="taskId" style="template" type="xs:long"><doc>id of task to be deleted</doc></param><method name="DELETE" id="delete"><doc>Deletes the task matching the provided id.</doc><request></request><response status="204"></response></method><method name="GET" id="read"><doc>Returns the task matching the given id.</doc><request></request><response><representation mediaType="application/xml" element="syncope1:abstractTask"><doc>task with matching id</doc></representation><representation mediaType="application/json" element="syncope1:abstractTask"><doc>task with matching id</doc></representation></response></method><method name="PUT" id="update"><doc>Updates the task matching the provided id.</doc><request><representation mediaType="application/xml" element="syncope1:abstractTask"><doc>updated task to be stored</doc></representation><representation mediaType="application/json" element="syncope1:abstractTask"><doc>updated task to be stored</doc></representation></request><response status="204"></response></method></resource><resource path="/{taskId}/execute"><param name="taskId" style="template" type="xs:long"><doc>id of task to be executed</doc></param><method name="POST" id="execute"><doc>Executes the task matching the given id.</doc><request><param name="dryRun" style="query" default="false" type="xs:boolean"><doc>if true, task will only be simulated</doc></param></request><response><representation mediaType="application/xml" element="syncope1:taskExec"><doc>execution report for the task matching the given id</doc></representation><representation mediaType="application/json" element="syncope1:taskExec"><doc>execution report for the task matching the given id</doc></representation></response></method></resource></resource><resource path="/users" id="org.apache.syncope.core.services.UserServiceImpl"><doc>REST operations for users.</doc><method name="GET" id="list"><doc>Returns a paged list of existing users.</doc><response><representation mediaType="application/xml" element="syncope1:pagedResult"><doc>paged list of all existing users</doc></representation><representation mediaType="application/json" element="syncope1:pagedResult"><doc>paged list of all existing users</doc></representation></response></method><method name="GET" id="list"><doc>Returns a paged list of existing users matching page/size conditions.</doc><request><param name="page" style="query" default="1" type="xs:int"><doc>result page number</doc></param><param name="size" style="query" default="25" type="xs:int"><doc>number of entries per page</doc></param><param name="orderby" style="query" type="xs:string"><doc>list of ordering clauses, separated by comma</doc></param></request><response><representation mediaType="application/xml" element="syncope1:pagedResult"><doc>paged list of existing users matching page/size conditions</doc></representation><representation mediaType="application/json" element="syncope1:pagedResult"><doc>paged list of existing users matching page/size conditions</doc></representation></response></method><method name="GET" id="list"><doc>Returns a paged list of existing users matching page/size conditions.</doc><request><param name="page" style="query" default="1" type="xs:int"><doc>result page number</doc></param><param name="size" style="query" default="25" type="xs:int"><doc>number of entries per page</doc></param></request><response><representation mediaType="application/xml" element="syncope1:pagedResult"><doc>paged list of existing users matching page/size conditions</doc></representation><representation mediaType="application/json" element="syncope1:pagedResult"><doc>paged list of existing users matching page/size conditions</doc></representation></response></method><method name="GET" id="list"><doc>Returns a paged list of existing users.</doc><request><param name="orderby" style="query" type="xs:string"><doc>list of ordering clauses, separated by comma</doc></param></request><response><representation mediaType="application/xml" element="syncope1:pagedResult"><doc>paged list of all existing users</doc></representation><representation mediaType="application/json" element="syncope1:pagedResult"><doc>paged list of all existing users</doc></representation></response></method><method name="POST" id="create"><doc>Creates a new user.</doc><request><representation mediaType="application/xml" element="syncope1:user"></representation><representation mediaType="application/json" element="syncope1:user"></representation></request><response><doc>Featuring &lt;tt&gt;Location&lt;/tt&gt; header of created user as well as the user itself enriched with propagation status information - &lt;tt&gt;UserTO&lt;/tt&gt; as &lt;tt&gt;Entity&lt;/tt&gt;</doc><representation mediaType="application/xml"></representation><representation mediaType="application/json"></representation></response></method><resource path="/bulk"><method name="POST" id="bulk"><doc>Executes the provided bulk action.</doc><request><representation mediaType="application/xml" element="syncope1:bulkAction"><doc>list of user ids against which the bulk action will be performed.</doc></representation><representation mediaType="application/json" element="syncope1:bulkAction"><doc>list of user ids against which the bulk action will be performed.</doc></representation></request><response><representation mediaType="application/xml" element="syncope1:bulkActionResult"><doc>Bulk action result</doc></representation><representation mediaType="application/json" element="syncope1:bulkActionResult"><doc>Bulk action result</doc></representation></response></method></resource><resource path="/search"><method name="GET" id="search"><doc>Returns a paged list of users matching the provided FIQL search condition.</doc><request><param name="fiql" style="query" type="xs:string"><doc>FIQL search expression</doc></param><param name="page" style="query" default="1" type="xs:int"><doc>result page number</doc></param><param name="size" style="query" default="25" type="xs:int"><doc>number of entries per page</doc></param><param name="orderby" style="query" type="xs:string"><doc>list of ordering clauses, separated by comma</doc></param></request><response><representation mediaType="application/xml" element="syncope1:pagedResult"><doc>paged list of users matching the provided FIQL search condition</doc></representation><representation mediaType="application/json" element="syncope1:pagedResult"><doc>paged list of users matching the provided FIQL search condition</doc></representation></response></method><method name="GET" id="search"><doc>Returns a paged list of users matching the provided FIQL search condition.</doc><request><param name="fiql" style="query" type="xs:string"><doc>FIQL search expression</doc></param></request><response><representation mediaType="application/xml" element="syncope1:pagedResult"><doc>paged list of users matching the provided FIQL search condition</doc></representation><representation mediaType="application/json" element="syncope1:pagedResult"><doc>paged list of users matching the provided FIQL search condition</doc></representation></response></method><method name="GET" id="search"><doc>Returns a paged list of users matching the provided FIQL search condition.</doc><request><param name="fiql" style="query" type="xs:string"><doc>FIQL search expression</doc></param><param name="orderby" style="query" type="xs:string"><doc>list of ordering clauses, separated by comma</doc></param></request><response><representation mediaType="application/xml" element="syncope1:pagedResult"><doc>paged list of users matching the provided FIQL search condition</doc></representation><representation mediaType="application/json" element="syncope1:pagedResult"><doc>paged list of users matching the provided FIQL search condition</doc></representation></response></method><method name="GET" id="search"><doc>Returns a paged list of users matching the provided FIQL search condition.</doc><request><param name="fiql" style="query" type="xs:string"><doc>FIQL search expression</doc></param><param name="page" style="query" default="1" type="xs:int"><doc>result page number</doc></param><param name="size" style="query" default="25" type="xs:int"><doc>number of entries per page</doc></param></request><response><representation mediaType="application/xml" element="syncope1:pagedResult"><doc>paged list of users matching the provided FIQL search condition</doc></representation><representation mediaType="application/json" element="syncope1:pagedResult"><doc>paged list of users matching the provided FIQL search condition</doc></representation></response></method></resource><resource path="/{userId}"><param name="userId" style="template" type="xs:long"><doc>id of user to be deleted</doc></param><method name="DELETE" id="delete"><doc>Deletes user matching provided userId.</doc><request></request><response><doc>Featuring the deleted user enriched with propagation status information - &lt;tt&gt;UserTO&lt;/tt&gt; as &lt;tt&gt;Entity&lt;/tt&gt;</doc><representation mediaType="application/xml"></representation><representation mediaType="application/json"></representation></response></method><method name="GET" id="read"><doc>Reads the user matching the provided userId.</doc><request></request><response><representation mediaType="application/xml" element="syncope1:user"><doc>User matching the provided userId</doc></representation><representation mediaType="application/json" element="syncope1:user"><doc>User matching the provided userId</doc></representation></response></method><method name="POST" id="update"><doc>Updates user matching the provided userId.</doc><request><representation mediaType="application/xml" element="syncope1:userMod"></representation><representation mediaType="application/json" element="syncope1:userMod"></representation></request><response><doc>Featuring the updated user enriched with propagation status information - &lt;tt&gt;UserTO&lt;/tt&gt; as &lt;tt&gt;Entity&lt;/tt&gt;</doc><representation mediaType="application/xml"></representation><representation mediaType="application/json"></representation></response></method></resource><resource path="/{userId}/bulkAssociation/{type}"><param name="userId" style="template" type="xs:long"><doc>user id.</doc></param><param name="type" style="template" type="xs:string"><option value="LINK"/><option value="PROVISION"/><option value="ASSIGN"/></param><method name="POST" id="bulkAssociation"><doc>Executes resource-related operations on given user.</doc><request><representation mediaType="application/xml" element="syncope1:resourceAssociationMod"></representation><representation mediaType="application/json" element="syncope1:resourceAssociationMod"></representation></request><response><doc>Featuring &lt;tt&gt;BulkActionResult&lt;/tt&gt; as &lt;tt&gt;Entity&lt;/tt&gt;</doc><representation mediaType="application/xml"></representation><representation mediaType="application/json"></representation></response></method></resource><resource path="/{userId}/bulkDeassociation/{type}"><param name="userId" style="template" type="xs:long"><doc>user id</doc></param><param name="type" style="template" type="xs:string"><option value="UNLINK"/><option value="DEPROVISION"/><option value="UNASSIGN"/></param><method name="POST" id="bulkDeassociation"><doc>Executes resource-related operations on given user.</doc><request><representation mediaType="application/xml" element="syncope1:resourceNames"></representation><representation mediaType="application/json" element="syncope1:resourceNames"></representation></request><response><doc>Featuring &lt;tt&gt;BulkActionResult&lt;/tt&gt; as &lt;tt&gt;Entity&lt;/tt&gt;</doc><representation mediaType="application/xml"></representation><representation mediaType="application/json"></representation></response></method></resource><resource path="/{userId}/status"><param name="userId" style="template" type="xs:long"><doc>id of user to be subjected to status update</doc></param><method name="POST" id="status"><doc>Performs a status update on user matching provided userId.</doc><request><representation mediaType="application/xml" element="syncope1:statusMod"></representation><representation mediaType="application/json" element="syncope1:statusMod"></representation></request><response><doc>Featuring the updated user enriched with propagation status information - &lt;tt&gt;UserTO&lt;/tt&gt; as &lt;tt&gt;Entity&lt;/tt&gt;</doc><representation mediaType="application/xml"></representation><representation mediaType="application/json"></representation></response></method></resource><resource path="/{userId}/username"><param name="userId" style="template" type="xs:long"><doc>user id</doc></param><method name="OPTIONS" id="getUsername"><doc>Gives the username for the provided user id.</doc><request></request><response><doc>Featuring HTTP header with username matching the given userId</doc><representation mediaType="application/octet-stream"></representation></response></method></resource><resource path="/{username}/userId"><param name="username" style="template" type="xs:string"><doc>username</doc></param><method name="OPTIONS" id="getUserId"><doc>Gives the user id for the provided username.</doc><request></request><response><doc>Featuring HTTP header with userId matching the given username</doc><representation mediaType="application/octet-stream"></representation></response></method></resource></resource><resource path="/users/self" id="org.apache.syncope.core.services.UserSelfServiceImpl"><doc>REST operations for user self-management.</doc><method name="DELETE" id="delete"><doc>Self-deletes user.</doc><response><doc>Featuring the deleted user - &lt;tt&gt;UserTO&lt;/tt&gt; as &lt;tt&gt;Entity&lt;/tt&gt;</doc><representation mediaType="application/xml"></representation><representation mediaType="application/json"></representation></response></method><method name="GET" id="read"><doc>Returns the user making the service call.</doc><response><representation mediaType="application/xml" element="syncope1:user"><doc>calling user data</doc></representation><representation mediaType="application/json" element="syncope1:user"><doc>calling user data</doc></representation></response></method><method name="OPTIONS" id="getOptions"><doc>Checks whether self-registration is allowed.</doc><response><doc>Contains special Syncope HTTP header indicating if user self registration is allowed</doc><representation mediaType="application/octet-stream"></representation></response></method><method name="POST" id="create"><doc>Self-registration for new user.</doc><request><representation mediaType="application/xml" element="syncope1:user"></representation><representation mediaType="application/json" element="syncope1:user"></representation></request><response><doc>Featuring &lt;tt&gt;Location&lt;/tt&gt; header of self-registered user as well as the user itself - {@link UserTO} as &lt;tt&gt;Entity&lt;/tt&gt;</doc><representation mediaType="application/xml"></representation><representation mediaType="application/json"></representation></response></method><resource path="/{userId}"><param name="userId" style="template" type="xs:long"><doc>id of user to be updated</doc></param><method name="POST" id="update"><doc>Self-updates user.</doc><request><representation mediaType="application/xml" element="syncope1:userMod"></representation><representation mediaType="application/json" element="syncope1:userMod"></representation></request><response><doc>Featuring the updated user - &lt;tt&gt;UserTO&lt;/tt&gt; as &lt;tt&gt;Entity&lt;/tt&gt;</doc><representation mediaType="application/xml"></representation><representation mediaType="application/json"></representation></response></method></resource></resource><resource path="/workflows/{kind}" id="org.apache.syncope.core.services.WorkflowServiceImpl"><doc>REST operations for workflow definition management.</doc><param name="kind" style="template" type="xs:string"><option value="USER"/><option value="ROLE"/><option value="MEMBERSHIP"/></param><method name="GET" id="exportDefinition"><doc>Exports workflow definition for matching kind.</doc><request></request><response><representation mediaType="application/xml"><doc>workflow definition for matching kind</doc></representation><representation mediaType="application/json"><doc>workflow definition for matching kind</doc></representation></response></method><method name="OPTIONS" id="getOptions"><doc>Checks whether Activiti is enabled (for users or roles).</doc><request></request><response><doc>Contains special syncope HTTP header indicating if Activiti is enabled for users / roles</doc><representation mediaType="application/octet-stream"></representation></response></method><method name="PUT" id="importDefinition"><doc>Imports workflow definition for matching kind.</doc><request><representation mediaType="application/xml"><param name="request" style="plain" type="xs:string"><doc>workflow definition for matching kind</doc></param></representation><representation mediaType="application/json"><param name="request" style="plain" type="xs:string"><doc>workflow definition for matching kind</doc></param></representation></request><response status="204"></response></method><resource path="/diagram.png"><param name="kind" style="template" type="xs:string"><option value="USER"/><option value="ROLE"/><option value="MEMBERSHIP"/></param><method name="GET" id="exportDiagram"><doc>Exports workflow diagram representation.</doc><request></request><response><representation mediaType="image/png"><doc>workflow diagram representation</doc></representation></response></method></resource></resource><resource path="/userworkflow" id="org.apache.syncope.core.services.UserWorkflowServiceImpl"><doc>REST operations related to user workflow.</doc><resource path="/forms"><method name="GET" id="getForms"><doc>Returns a list of all available workflow forms.</doc><response><representation mediaType="application/xml" element="syncope1:workflowForms"><doc>list of all available workflow forms</doc></representation><representation mediaType="application/json" element="syncope1:workflowForms"><doc>list of all available workflow forms</doc></representation></response></method><method name="POST" id="submitForm"><doc>Submits a workflow form.</doc><request><representation mediaType="application/xml" element="syncope1:workflowForm"><doc>workflow form.</doc></representation><representation mediaType="application/json" element="syncope1:workflowForm"><doc>workflow form.</doc></representation></request><response><representation mediaType="application/xml" element="syncope1:user"><doc>updated user</doc></representation><representation mediaType="application/json" element="syncope1:user"><doc>updated user</doc></representation></response></method></resource><resource path="/forms/{taskId}/claim"><param name="taskId" style="template" type="xs:string"><doc>workflow task id</doc></param><method name="POST" id="claimForm"><doc>Claims the form for the given task id.</doc><request></request><response><representation mediaType="application/xml" element="syncope1:workflowForm"><doc>the workflow form for the given task id</doc></representation><representation mediaType="application/json" element="syncope1:workflowForm"><doc>the workflow form for the given task id</doc></representation></response></method></resource><resource path="/forms/{userId}"><param name="userId" style="template" type="xs:long"><doc>user id</doc></param><method name="GET" id="getFormForUser"><doc>Returns a list of available forms for the given user id.</doc><request></request><response><representation mediaType="application/xml" element="syncope1:workflowForm"><doc>list of available forms for the given user id</doc></representation><representation mediaType="application/json" element="syncope1:workflowForm"><doc>list of available forms for the given user id</doc></representation></response></method></resource><resource path="/forms/{userId}/{name}"><param name="userId" style="template" type="xs:long"><doc>user id</doc></param><param name="name" style="template" type="xs:string"><doc>form name</doc></param><method name="GET" id="getFormsByName"><doc>Returns a list of all available workflow forms with matching name, for the given user id.</doc><request></request><response><representation mediaType="application/xml" element="syncope1:workflowForms"><doc>list of all available workflow forms with matching name, fir the given user id.</doc></representation><representation mediaType="application/json" element="syncope1:workflowForms"><doc>list of all available workflow forms with matching name, fir the given user id.</doc></representation></response></method></resource><resource path="/tasks/{taskId}/execute"><param name="taskId" style="template" type="xs:string"><doc>workflow task id</doc></param><method name="POST" id="executeTask"><doc>Executes workflow task for matching id.</doc><request><representation mediaType="application/xml" element="syncope1:user"><doc>argument to be passed to workflow task</doc></representation><representation mediaType="application/json" element="syncope1:user"><doc>argument to be passed to workflow task</doc></representation></request><response><representation mediaType="application/xml" element="syncope1:user"><doc>updated user</doc></representation><representation mediaType="application/json" element="syncope1:user"><doc>updated user</doc></representation></response></method></resource></resource></resources></application>
